@@ -4,19 +4,22 @@
 
 @section('content')
     <div class="container">
-        <h2 class="my-3">Tambah Data</h2>
-        <form action="{{ route('storeData') }}" method="POST">
+        <h2 class="my-3">Edit Data</h2>
+        <form action="{{ route('updateData', $data->id) }}" method="POST">
             @csrf
+            @method('PUT')
+
             <div class="col mb-3">
                 <label class="form-label fw-bold">Program</label>
-                <input type="text" name="program" class="form-control" placeholder="Masukan Program...">
+                <input type="text" name="program" class="form-control" value="{{ old('program', $data->program) }}">
             </div>
 
             <div class="row mb-3">
                 <div class="col">
                     <label class="form-label fw-bold">Kabupaten/Kota</label>
                     <select name="kabupaten" id="kabupaten" class="form-select input">
-                        <option value="">-Pilih-</option>
+                        <option value="{{ old('kabupaten', $data->kabupaten) }}">{{ old('kabupaten', $data->kabupaten) }}
+                        </option>
                         @foreach ($kabupaten as $kab)
                             <option value="{{ $kab->kabupaten }}">{{ $kab->kabupaten }}</option>
                         @endforeach
@@ -24,19 +27,23 @@
                 </div>
                 <div class="col">
                     <label class="form-label fw-bold">Kecamatan</label>
-                    <select name="kecamatan" id="kecamatan" class="form-select input"></select>
+                    <select name="kecamatan" id="kecamatan" class="form-select input">
+                        <option value="{{ old('kecamatan', $data->kecamatan) }}">{{ old('kecamatan', $data->kecamatan) }}
+                        </option>
+                    </select>
                 </div>
             </div>
 
             <div class="row mb-3">
                 <div class="col mb-3">
                     <label class="form-label fw-bold">Koordinat</label>
-                    <input type="text" name="koordinat" class="form-control" placeholder="Masukan Koordinat...">
+                    <input type="text" name="koordinat" class="form-control"
+                        value="{{ old('koordinat', $data->koordinat) }}">
                 </div>
+
                 <div class="col mb-3">
                     <label class="form-label fw-bold">Rencana Biaya Anggaran</label>
-                    <input type="number" name="biaya" class="form-control"
-                        placeholder="Masukan Rencana Biaya Anggaran...">
+                    <input type="number" name="biaya" class="form-control" value="{{ old('biaya', $data->biaya) }}">
                 </div>
             </div>
 

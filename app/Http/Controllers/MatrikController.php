@@ -11,7 +11,7 @@ class MatrikController extends Controller
 {
     public function index()
     {
-        $matriks = Matrik::paginate(5);
+        $matriks = Matrik::paginate(10);
         return view('index', compact('matriks'));
     }
 
@@ -58,5 +58,52 @@ class MatrikController extends Controller
         // dd($id);
 
         return view('show', compact('id'));
+    }
+
+    public function edit(Request $request, $id)
+    {
+        // return view('edit', [
+        //     'kabupaten' => Kabupaten::all()
+        // ]);
+
+        $data = Matrik::find($id);
+        $kabupaten = Kabupaten::all();
+        // dd($data);
+        return view('edit', compact('data', 'kabupaten'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        // Validasi data permintaan jika diperlukan
+        $request->validate([
+            'program' => 'required|string',
+            'kabupaten' => 'required|string',
+            'kecamatan' => 'required|string',
+            'koordinat' => 'required|string',
+            'biaya' => 'required|numeric',
+        ]);
+
+        // Temukan entri yang ingin diperbarui
+        $matriks = Matrik::findOrFail($id);
+        // Lakukan pembaruan pada entri
+        $matriks->update([
+            'program' => $request->program,
+            'kabupaten' => $request->kabupaten,
+            'kecamatan' => $request->kecamatan,
+            'koordinat' => $request->koordinat,
+            'biaya' => $request->biaya
+            // tambahkan atribut lain yang ingin Anda perbarui
+        ]);
+
+        // Redirect atau kembalikan respons yang sesuai
+        return redirect()->route('beranda')->with(['success' => 'Data Berhasil Diubah']);
+    }
+
+    public function destroy($id)
+    {
+        //get post by ID
+        $matriks = Matrik::findOrFail($id);
+        $matriks->delete();
+        return redirect()->route('beranda')->with(['success' => 'Data Berhasil Dihapus!']);
     }
 }
