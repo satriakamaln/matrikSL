@@ -21,7 +21,6 @@ class KecamatanSeeder extends Seeder
             ['kecamatan' => 'LAMPIHONG', 'kabupaten' => 'BALANGAN'],
             ['kecamatan' => 'PARINGIN', 'kabupaten' => 'BALANGAN'],
             ['kecamatan' => 'PARINGIN SELATAN', 'kabupaten' => 'BALANGAN'],
-            ['kecamatan' => 'PARINGIN SELATAN', 'kabupaten' => 'BALANGAN'],
             ['kecamatan' => 'TEBING TINGGI', 'kabupaten' => 'BALANGAN'],
 
             ['kecamatan' => 'ALUH ALUH', 'kabupaten' => 'BANJAR'],
