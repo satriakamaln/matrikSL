@@ -159,6 +159,31 @@ class KecamatanSeeder extends Seeder
             ['kecamatan' => 'SUNGAI LOBAN', 'kabupaten' => 'TANAH BUMBU'],
             ['kecamatan' => 'TELUK KEPAYANG', 'kabupaten' => 'TANAH BUMBU'],
 
+            ['kecamatan' => 'BAJUIN', 'kabupaten' => 'TANAH LAUT'],
+            ['kecamatan' => 'BATI BATI', 'kabupaten' => 'TANAH LAUT'],
+            ['kecamatan' => 'BATU AMPAR', 'kabupaten' => 'TANAH LAUT'],
+            ['kecamatan' => 'BUMI MAKMUR', 'kabupaten' => 'TANAH LAUT'],
+            ['kecamatan' => 'JORONG', 'kabupaten' => 'TANAH LAUT'],
+            ['kecamatan' => 'KINTAP', 'kabupaten' => 'TANAH LAUT'],
+            ['kecamatan' => 'KURAU', 'kabupaten' => 'TANAH LAUT'],
+            ['kecamatan' => 'PANYIPATAN', 'kabupaten' => 'TANAH LAUT'],
+            ['kecamatan' => 'PELAIHARI', 'kabupaten' => 'TANAH LAUT'],
+            ['kecamatan' => 'TAKISUNG', 'kabupaten' => 'TANAH LAUT'],
+            ['kecamatan' => 'TAMBANG ULANG', 'kabupaten' => 'TANAH LAUT'],
+
+            ['kecamatan' => 'BAKARANGAN', 'kabupaten' => 'TAPIN'],
+            ['kecamatan' => 'BINUANG', 'kabupaten' => 'TAPIN'],
+            ['kecamatan' => 'BUNGUR', 'kabupaten' => 'TAPIN'],
+            ['kecamatan' => 'CANDI LARAS SELATAN', 'kabupaten' => 'TAPIN'],
+            ['kecamatan' => 'CANDI LARAS UTARA', 'kabupaten' => 'TAPIN'],
+            ['kecamatan' => 'HATUNGUN', 'kabupaten' => 'TAPIN'],
+            ['kecamatan' => 'LOKPAIKAT', 'kabupaten' => 'TAPIN'],
+            ['kecamatan' => 'PIANI', 'kabupaten' => 'TAPIN'],
+            ['kecamatan' => 'SALAM BABARIS', 'kabupaten' => 'TAPIN'],
+            ['kecamatan' => 'TAPIN SELATAN', 'kabupaten' => 'TAPIN'],
+            ['kecamatan' => 'TAPIN TENGAH', 'kabupaten' => 'TAPIN'],
+            ['kecamatan' => 'TAPIN UTARA', 'kabupaten' => 'TAPIN'],
+
         ];
 
         Kecamatan::insert($kecamatan);
