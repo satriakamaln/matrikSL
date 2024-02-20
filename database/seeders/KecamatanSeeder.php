@@ -133,6 +133,32 @@ class KecamatanSeeder extends Seeder
             ['kecamatan' => 'SAMPANAHAN', 'kabupaten' => 'KOTABARU'],
             ['kecamatan' => 'SUNGAI DURIAN', 'kabupaten' => 'KOTABARU'],
 
+            ['kecamatan' => 'BANUA LAWAS', 'kabupaten' => 'TABALONG'],
+            ['kecamatan' => 'BINTANG ARA', 'kabupaten' => 'TABALONG'],
+            ['kecamatan' => 'HARUAI', 'kabupaten' => 'TABALONG'],
+            ['kecamatan' => 'JARO', 'kabupaten' => 'TABALONG'],
+            ['kecamatan' => 'KELUA', 'kabupaten' => 'TABALONG'],
+            ['kecamatan' => 'MUARA HARUS', 'kabupaten' => 'TABALONG'],
+            ['kecamatan' => 'MUARA UYA', 'kabupaten' => 'TABALONG'],
+            ['kecamatan' => 'MURUNG PUDAK', 'kabupaten' => 'TABALONG'],
+            ['kecamatan' => 'PUGAAN', 'kabupaten' => 'TABALONG'],
+            ['kecamatan' => 'TANJUNG', 'kabupaten' => 'TABALONG'],
+            ['kecamatan' => 'TANTA', 'kabupaten' => 'TABALONG'],
+            ['kecamatan' => 'UPAU', 'kabupaten' => 'TABALONG'],
+
+            ['kecamatan' => 'ANGSANA', 'kabupaten' => 'TANAH BUMBU'],
+            ['kecamatan' => 'BATU LICIN', 'kabupaten' => 'TANAH BUMBU'],
+            ['kecamatan' => 'KARANG BINTANG', 'kabupaten' => 'TANAH BUMBU'],
+            ['kecamatan' => 'KURANJI', 'kabupaten' => 'TANAH BUMBU'],
+            ['kecamatan' => 'KUSAN HILIR', 'kabupaten' => 'TANAH BUMBU'],
+            ['kecamatan' => 'KUSAN HULU', 'kabupaten' => 'TANAH BUMBU'],
+            ['kecamatan' => 'KUSAN TENGAH', 'kabupaten' => 'TANAH BUMBU'],
+            ['kecamatan' => 'MANTEWE', 'kabupaten' => 'TANAH BUMBU'],
+            ['kecamatan' => 'SATUI', 'kabupaten' => 'TANAH BUMBU'],
+            ['kecamatan' => 'SIMPANG EMPAT', 'kabupaten' => 'TANAH BUMBU'],
+            ['kecamatan' => 'SUNGAI LOBAN', 'kabupaten' => 'TANAH BUMBU'],
+            ['kecamatan' => 'TELUK KEPAYANG', 'kabupaten' => 'TANAH BUMBU'],
+
         ];
 
         Kecamatan::insert($kecamatan);
