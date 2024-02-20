@@ -14,18 +14,29 @@ class KelurahanSeeder extends Seeder
     public function run(): void
     {
         $kelurahan = [
-            ['kelurahan' => 'Awk A', 'kecamatan' => 'Awk Utara'],
-            ['kelurahan' => 'Awk B', 'kecamatan' => 'Awk Utara'],
-            ['kelurahan' => 'Awk C', 'kecamatan' => 'Awk Selatan'],
-            ['kelurahan' => 'Awk D', 'kecamatan' => 'Awk Selatan'],
-            ['kelurahan' => 'Kaw A', 'kecamatan' => 'Kaw City'],
-            ['kelurahan' => 'Kaw B', 'kecamatan' => 'Kaw City'],
-            ['kelurahan' => 'Kaw C', 'kecamatan' => 'Kaw Central'],
-            ['kelurahan' => 'Kaw D', 'kecamatan' => 'Kaw Central'],
-            ['kelurahan' => 'Wak A', 'kecamatan' => 'Wak Haiya'],
-            ['kelurahan' => 'Wak B', 'kecamatan' => 'Wak Haiya'],
-            ['kelurahan' => 'Wak C', 'kecamatan' => 'Wak Hulu hulu'],
-            ['kelurahan' => 'Wak D', 'kecamatan' => 'Wak Hulu hulu'],
+            ['kelurahan' => 'AMBAKIANG', 'kecamatan' => 'AWAYAN'],
+            ['kelurahan' => 'AWAYAN', 'kecamatan' => 'AWAYAN'],
+            ['kelurahan' => 'AWAYAN HILIR', 'kecamatan' => 'AWAYAN'],
+            ['kelurahan' => 'BADALUNGGA', 'kecamatan' => 'AWAYAN'],
+            ['kelurahan' => 'BADALUNGGA HILIR', 'kecamatan' => 'AWAYAN'],
+            ['kelurahan' => 'BARAMBAN', 'kecamatan' => 'AWAYAN'],
+            ['kelurahan' => 'BARU', 'kecamatan' => 'AWAYAN'],
+            ['kelurahan' => 'BIHARA', 'kecamatan' => 'AWAYAN'],
+            ['kelurahan' => 'BIHARA HILIR', 'kecamatan' => 'AWAYAN'],
+            ['kelurahan' => 'KEDONDONG', 'kecamatan' => 'AWAYAN'],
+            ['kelurahan' => 'MERAH', 'kecamatan' => 'AWAYAN'],
+            ['kelurahan' => 'MUARA JAYA', 'kecamatan' => 'AWAYAN'],
+            ['kelurahan' => 'NUNGKA', 'kecamatan' => 'AWAYAN'],
+            ['kelurahan' => 'PIYAIT', 'kecamatan' => 'AWAYAN'],
+            ['kelurahan' => 'PUDAK', 'kecamatan' => 'AWAYAN'],
+            ['kelurahan' => 'PULANTAN', 'kecamatan' => 'AWAYAN'],
+            ['kelurahan' => 'PUTAT BASIUN', 'kecamatan' => 'AWAYAN'],
+            ['kelurahan' => 'SEI PUMPUNG', 'kecamatan' => 'AWAYAN'],
+            ['kelurahan' => 'SIKONTAN', 'kecamatan' => 'AWAYAN'],
+            ['kelurahan' => 'TANGALIN', 'kecamatan' => 'AWAYAN'],
+            ['kelurahan' => 'TUNDAKAN', 'kecamatan' => 'AWAYAN'],
+            ['kelurahan' => 'TUNDI', 'kecamatan' => 'AWAYAN'],
+
         ];
 
         Kelurahan::insert($kelurahan);
