@@ -18,6 +18,10 @@
             <div class="col-9 border p-2"><b>{{ $id->kecamatan }}</b></div>
         </div>
         <div class="row">
+            <div class="col-3 border p-2 bold">Kecamatan</div>
+            <div class="col-9 border p-2"><b>{{ $id->kelurahan }}</b></div>
+        </div>
+        <div class="row">
             <div class="col-3 border p-2 bold">Koordinat</div>
             <div class="col-9 border p-2">
                 <p class="koordinat m-0">

@@ -21,10 +21,15 @@
                             <option value="{{ $kab->kabupaten }}">{{ $kab->kabupaten }}</option>
                         @endforeach
                     </select>
+
                 </div>
                 <div class="col">
                     <label class="form-label fw-bold">Kecamatan</label>
                     <select name="kecamatan" id="kecamatan" class="form-select input"></select>
+                </div>
+                <div class="col">
+                    <label class="form-label fw-bold">Kelurahan</label>
+                    <select name="kelurahan" id="kelurahan" class="form-select input"></select>
                 </div>
             </div>
 
@@ -39,6 +44,7 @@
                         placeholder="Masukan Rencana Biaya Anggaran...">
                 </div>
             </div>
+
 
             <button type="submit" class="btn btn-md btn-primary mb-3">SIMPAN</button>
         </form>

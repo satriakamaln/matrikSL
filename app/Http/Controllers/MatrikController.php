@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Matrik;
 use App\Models\Kabupaten;
 use App\Models\Kecamatan;
+use App\Models\Kelurahan;
 use Illuminate\Http\Request;
 
 class MatrikController extends Controller
@@ -15,16 +16,23 @@ class MatrikController extends Controller
         return view('index', compact('matriks'));
     }
 
-    public function getKecamatan($nama)
+    public function getKecamatan($kabupaten)
     {
-        $kecamatan = Kecamatan::where('kabupaten', $nama)->get();
+        $kecamatan = Kecamatan::where('kabupaten', $kabupaten)->get();
         return response()->json($kecamatan);
+    }
+
+    public function getKelurahan($kelurahan)
+    {
+        $kelurahan = Kelurahan::where('kecamatan', $kelurahan)->get();
+        return response()->json($kelurahan);
     }
 
     public function create()
     {
         return view('create', [
-            'kabupaten' => Kabupaten::all()
+            'kabupaten' => Kabupaten::all(),
+            'kelurahan' => Kelurahan::all()
         ]);
     }
 
@@ -35,6 +43,7 @@ class MatrikController extends Controller
             'program' => 'required|string',
             'kabupaten' => 'required|string',
             'kecamatan' => 'required|string',
+            'kelurahan' => 'required|string',
             'koordinat' => 'required|string',
             'biaya' => 'required|numeric',
         ]);
@@ -45,6 +54,7 @@ class MatrikController extends Controller
             'program' => $request->program,
             'kabupaten' => $request->kabupaten,
             'kecamatan' => $request->kecamatan,
+            'kelurahan' => $request->kelurahan,
             'koordinat' => $request->koordinat,
             'biaya' => $request->biaya
         ]);
@@ -68,8 +78,9 @@ class MatrikController extends Controller
 
         $data = Matrik::find($id);
         $kabupaten = Kabupaten::all();
+        $kecamatan = kecamatan::all();
         // dd($data);
-        return view('edit', compact('data', 'kabupaten'));
+        return view('edit', compact('data', 'kabupaten', 'kecamatan'));
     }
 
     public function update(Request $request, $id)
@@ -79,6 +90,7 @@ class MatrikController extends Controller
             'program' => 'required|string',
             'kabupaten' => 'required|string',
             'kecamatan' => 'required|string',
+            'kelurahan' => 'required|string',
             'koordinat' => 'required|string',
             'biaya' => 'required|numeric',
         ]);
@@ -90,6 +102,7 @@ class MatrikController extends Controller
             'program' => $request->program,
             'kabupaten' => $request->kabupaten,
             'kecamatan' => $request->kecamatan,
+            'kelurahan' => $request->kelurahan,
             'koordinat' => $request->koordinat,
             'biaya' => $request->biaya
             // tambahkan atribut lain yang ingin Anda perbarui

@@ -5,16 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Matrik extends Model
+class Kelurahan extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'program',
-        'kabupaten',
-        'kecamatan',
         'kelurahan',
-        'koordinat',
-        'biaya'
+        'kecamatan'
     ];
 }

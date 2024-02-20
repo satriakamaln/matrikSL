@@ -4,7 +4,6 @@
 
 @section('content')
     <div class="container">
-
         <h2 class="my-3">Matrik Shopping List</h2>
         <a href="{{ route('tambahData') }}" class="btn btn-md btn-success mb-3">TAMBAH DATA</a>
 

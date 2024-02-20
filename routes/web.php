@@ -21,7 +21,8 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', [MatrikController::class, 'index'])->name('beranda');
-Route::get('/create/kecamatan/{id}', [MatrikController::class, 'getKecamatan']);
+Route::get('/create/kecamatan/{kabupaten}', [MatrikController::class, 'getKecamatan'])->name('getKecamatan');
+Route::get('/create/kelurahan/{kecamatan}', [MatrikController::class, 'getKelurahan'])->name('getKelurahan');
 Route::get('/create', [MatrikController::class, 'create'])->name('tambahData');
 Route::post('/store', [MatrikController::class, 'store'])->name('storeData');
 Route::get('/show/{id}', [MatrikController::class, 'show'])->name('detailData');

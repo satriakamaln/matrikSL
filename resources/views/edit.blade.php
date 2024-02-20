@@ -32,6 +32,13 @@
                         </option>
                     </select>
                 </div>
+                <div class="col">
+                    <label class="form-label fw-bold">Kelurahan</label>
+                    <select name="kelurahan" id="kelurahan" class="form-select input">
+                        <option value="{{ old('kelurahan', $data->kelurahan) }}">{{ old('kelurahan', $data->kelurahan) }}
+                        </option>
+                    </select>
+                </div>
             </div>
 
             <div class="row mb-3">

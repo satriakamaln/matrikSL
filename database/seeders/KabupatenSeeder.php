@@ -14,9 +14,19 @@ class KabupatenSeeder extends Seeder
     public function run(): void
     {
         $kabupaten = [
-            ['kabupaten' => 'Kabupaten Awk'],
-            ['kabupaten' => 'Kabupaten Kaw'],
-            ['kabupaten' => 'Kabupaten Wak']
+            ['kabupaten' => 'BALANGAN'],
+            ['kabupaten' => 'BANJAR'],
+            ['kabupaten' => 'BARITO KUALA'],
+            ['kabupaten' => 'HULU SUNGAI SELATAN'],
+            ['kabupaten' => 'HULU SUNGAI TENGAH'],
+            ['kabupaten' => 'HULU SUNGAI UTARA'],
+            ['kabupaten' => 'KOTA BANJARMASIN'],
+            ['kabupaten' => 'KOTA BANJARBARU'],
+            ['kabupaten' => 'KOTABARU'],
+            ['kabupaten' => 'TABALONG'],
+            ['kabupaten' => 'TANAH BUMBU'],
+            ['kabupaten' => 'TANAH LAUT'],
+            ['kabupaten' => 'TAPIN'],
         ];
 
         Kabupaten::insert($kabupaten);

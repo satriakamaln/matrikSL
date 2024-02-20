@@ -22,12 +22,16 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        // $this->call([
-        //     KabupatenSeeder::class
-        // ]);
+        $this->call([
+            KabupatenSeeder::class
+        ]);
 
-        // $this->call([
-        //     KecamatanSeeder::class
-        // ]);
+        $this->call([
+            KecamatanSeeder::class
+        ]);
+
+        $this->call([
+            KelurahanSeeder::class
+        ]);
     }
 }
