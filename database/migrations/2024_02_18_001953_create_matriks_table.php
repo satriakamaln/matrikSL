@@ -13,12 +13,21 @@ return new class extends Migration
     {
         Schema::create('matriks', function (Blueprint $table) {
             $table->id();
+            $table->string('pilar');
+            $table->string('goal_sdgs');
+            $table->string('misi_rpjmd');
+            $table->string('prioritas_daerah');
             $table->string('program');
+            $table->string('kegiatan');
+            $table->string('subkegiatan');
+            $table->string('aktifitas');
+            $table->string('target');
             $table->string('kabupaten');
             $table->string('kecamatan');
             $table->string('kelurahan');
             $table->string('koordinat');
             $table->decimal('biaya', 13, 2);
+            $table->string('dinas_pengampu');
             $table->timestamps();
         });
     }
