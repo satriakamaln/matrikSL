@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Goalsdgs;
 use App\Models\Matrik;
 use App\Models\Kabupaten;
 use App\Models\Kecamatan;
@@ -32,7 +33,8 @@ class MatrikController extends Controller
     {
         return view('create', [
             'kabupaten' => Kabupaten::all(),
-            'kelurahan' => Kelurahan::all()
+            'kelurahan' => Kelurahan::all(),
+            'goal_sdgs' => Goalsdgs::all()
         ]);
     }
 
@@ -40,23 +42,41 @@ class MatrikController extends Controller
     {
         // Validasi data jika diperlukan
         $request->validate([
+            'pilar' => 'required|string',
+            'goal_sdgs' => 'required|string',
+            'misi_rpjmd' => 'required|string',
+            'prioritas_daerah' => 'required|string',
             'program' => 'required|string',
+            'kegiatan' => 'required|string',
+            'subkegiatan' => 'required|string',
+            'aktifitas' => 'required|string',
+            'target' => 'required|string',
             'kabupaten' => 'required|string',
             'kecamatan' => 'required|string',
             'kelurahan' => 'required|string',
             'koordinat' => 'required|string',
             'biaya' => 'required|numeric',
+            'dinas_pengampu' => 'required|string',
         ]);
 
         // Proses penyimpanan data ke dalam database
         // Misalnya:
         Matrik::create([
+            'pilar' => $request->pilar,
+            'goal_sdgs' => $request->goal_sdgs,
+            'misi_rpjmd' => $request->misi_rpjmd,
+            'prioritas_daerah' => $request->prioritas_daerah,
             'program' => $request->program,
+            'kegiatan' => $request->kegiatan,
+            'subkegiatan' => $request->subkegiatan,
+            'aktifitas' => $request->aktifitas,
+            'target' => $request->target,
             'kabupaten' => $request->kabupaten,
             'kecamatan' => $request->kecamatan,
             'kelurahan' => $request->kelurahan,
             'koordinat' => $request->koordinat,
-            'biaya' => $request->biaya
+            'biaya' => $request->biaya,
+            'dinas_pengampu' => $request->dinas_pengampu
         ]);
 
         // Redirect atau berikan respons sesuai kebutuhan Anda

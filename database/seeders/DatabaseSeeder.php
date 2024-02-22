@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Goalsdgs;
 use App\Models\Kabupaten;
 use App\Models\Kecamatan;
 use Illuminate\Database\Seeder;
@@ -22,16 +23,20 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        $this->call([
-            KabupatenSeeder::class
-        ]);
+        // $this->call([
+        //     KabupatenSeeder::class
+        // ]);
 
-        $this->call([
-            KecamatanSeeder::class
-        ]);
+        // $this->call([
+        //     KecamatanSeeder::class
+        // ]);
 
-        $this->call([
-            KelurahanSeeder::class
-        ]);
+        // $this->call([
+        //     KelurahanSeeder::class
+        // ]);
+
+        // $this->call([
+        //     GoalsdgsSeeder::class
+        // ]);
     }
 }

@@ -12,7 +12,8 @@
                 <tr>
                     <th>No</th>
                     <th>Program</th>
-                    {{-- <th>Kabupaten/Kota</th> --}}
+                    <th>Kegiatan</th>
+                    <th>Kabupaten/Kota</th>
                     {{-- <th>Kecamatan</th> --}}
                     {{-- <th>Koordinat</th> --}}
                     <th>Rencana Biaya Anggaran</th>
@@ -24,7 +25,8 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $matrik->program }}</td>
-                        {{-- <td>{{ $matrik->kabupaten }}</td> --}}
+                        <td>{{ $matrik->kegiatan }}</td>
+                        <td>{{ $matrik->kabupaten }}</td>
                         {{-- <td>{{ $matrik->kecamatan }}</td> --}}
                         {{-- <td class="koordinat">
                             <a class="tautan" target="_blank">{{ $matrik->koordinat }}</a>
