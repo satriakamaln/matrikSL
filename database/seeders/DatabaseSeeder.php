@@ -7,6 +7,7 @@ namespace Database\Seeders;
 use App\Models\Goalsdgs;
 use App\Models\Kabupaten;
 use App\Models\Kecamatan;
+use App\Models\Misirpjmd;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -37,6 +38,14 @@ class DatabaseSeeder extends Seeder
 
         // $this->call([
         //     GoalsdgsSeeder::class
+        // ]);
+
+        // $this->call([
+        //     PilarSeeder::class
+        // ]);
+
+        // $this->call([
+        //     MisirpjmdSeeder::class
         // ]);
     }
 }

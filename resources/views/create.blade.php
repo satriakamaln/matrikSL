@@ -11,7 +11,10 @@
                 <div class="col-4">
                     <label class="form-label fw-bold">Pilar</label>
                     <select name="pilar" id="pilar" class="form-select input">
-                        <option value="pilar">pilar</option>
+                        <option value="">-Pilih-</option>
+                        @foreach ($pilars as $pilar)
+                            <option value="{{ $pilar->pilar }}">{{ $pilar->pilar }}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="col">
@@ -27,7 +30,10 @@
             <div class="col mb-3">
                 <label class="form-label fw-bold">Misi RPJMD</label>
                 <select name="misi_rpjmd" id="misi_rpjmd" class="form-select input">
-                    <option value="misi_rpjmd">misi_rpjmd</option>
+                    <option value="">-Pilih-</option>
+                    @foreach ($misi_rpjmd as $misi)
+                        <option value="{{ $misi->misi_rpjmd }}">{{ $misi->misi_rpjmd }}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="col mb-3">

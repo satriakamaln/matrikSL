@@ -7,6 +7,8 @@ use App\Models\Matrik;
 use App\Models\Kabupaten;
 use App\Models\Kecamatan;
 use App\Models\Kelurahan;
+use App\Models\Misirpjmd;
+use App\Models\Pilar;
 use Illuminate\Http\Request;
 
 class MatrikController extends Controller
@@ -34,7 +36,9 @@ class MatrikController extends Controller
         return view('create', [
             'kabupaten' => Kabupaten::all(),
             'kelurahan' => Kelurahan::all(),
-            'goal_sdgs' => Goalsdgs::all()
+            'goal_sdgs' => Goalsdgs::all(),
+            'pilars' => Pilar::all(),
+            'misi_rpjmd' => Misirpjmd::all()
         ]);
     }
 
