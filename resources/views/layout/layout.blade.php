@@ -103,12 +103,49 @@
                                     )
                                 });
                             } else {
-                                $('#kecamatan').empty();
+                                $('#kelurahan').empty();
                             }
                         }
                     });
                 } else {
-                    $('#kecamatan').empty();
+                    $('#kelurahan').empty();
+                }
+            });
+
+
+            $('#tahunpd').on('change', function() {
+                var tahunpd = $(this).val();
+                console.log(tahunpd);
+                if (tahunpd) {
+                    $.ajax({
+                        url: '/create/prioritas/' + tahunpd,
+                        type: 'GET',
+                        data: {
+                            '_token': '{{ csrf_token() }}'
+                        },
+                        dataType: 'json',
+                        success: function(data) {
+                            console.log(data);
+                            if (data) {
+                                $('#prioritas_daerah').empty();
+                                $('#prioritas_daerah').append(
+                                    '<option value="">-Pilih-</option>');
+                                $.each(data, function(key, prioritas_daerah) {
+                                    $('select[name="prioritas_daerah"]').append(
+                                        '<option value="' + prioritas_daerah
+                                        .prioritas_daerah +
+                                        '" >' +
+                                        prioritas_daerah.prioritas_daerah +
+                                        '</option>'
+                                    )
+                                });
+                            } else {
+                                $('#prioritas_daerah').empty();
+                            }
+                        }
+                    });
+                } else {
+                    $('#prioritas_daerah').empty();
                 }
             });
         });

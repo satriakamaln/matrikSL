@@ -36,11 +36,21 @@
                     @endforeach
                 </select>
             </div>
-            <div class="col mb-3">
-                <label class="form-label fw-bold">Prioritas Daerah</label>
-                <select name="prioritas_daerah" id="prioritas_daerah" class="form-select input">
-                    <option value="prioritas_daerah">prioritas_daerah</option>
-                </select>
+            <div class="row mb-3">
+                <div class="col-2">
+                    <label class="form-label fw-bold">Tahun PD</label>
+                    <select name="tahunpd" id="tahunpd" class="form-select input">
+                        <option value="">-Pilih-</option>
+                        @foreach ($tahunpd as $pd)
+                            <option value="{{ $pd->tahunpd }}">{{ $pd->tahunpd }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="col">
+                    <label class="form-label fw-bold">Prioritas Daerah</label>
+                    <select name="prioritas_daerah" id="prioritas_daerah" class="form-select input">
+                    </select>
+                </div>
             </div>
             <div class="col mb-3">
                 <label class="form-label fw-bold">Program</label>

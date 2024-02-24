@@ -8,6 +8,7 @@ use App\Models\Goalsdgs;
 use App\Models\Kabupaten;
 use App\Models\Kecamatan;
 use App\Models\Misirpjmd;
+use App\Models\Prioritas;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -47,5 +48,15 @@ class DatabaseSeeder extends Seeder
         // $this->call([
         //     MisirpjmdSeeder::class
         // ]);
+
+        // $this->call([
+        //     TahunpdSeeder::class
+        // ]);
+
+        $this->call([
+            PrioritasSeeder::class
+        ]);
+
+        //  
     }
 }

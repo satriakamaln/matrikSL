@@ -9,6 +9,8 @@ use App\Models\Kecamatan;
 use App\Models\Kelurahan;
 use App\Models\Misirpjmd;
 use App\Models\Pilar;
+use App\Models\Prioritas;
+use App\Models\Tahunpd;
 use Illuminate\Http\Request;
 
 class MatrikController extends Controller
@@ -17,6 +19,12 @@ class MatrikController extends Controller
     {
         $matriks = Matrik::paginate(10);
         return view('index', compact('matriks'));
+    }
+
+    public function getPrioritas($tahunpd)
+    {
+        $prioritas = Prioritas::where('tahunpd', $tahunpd)->get();
+        return response()->json($prioritas);
     }
 
     public function getKecamatan($kabupaten)
@@ -35,10 +43,11 @@ class MatrikController extends Controller
     {
         return view('create', [
             'kabupaten' => Kabupaten::all(),
-            'kelurahan' => Kelurahan::all(),
             'goal_sdgs' => Goalsdgs::all(),
             'pilars' => Pilar::all(),
-            'misi_rpjmd' => Misirpjmd::all()
+            'misi_rpjmd' => Misirpjmd::all(),
+            'tahunpd' => Tahunpd::all(),
+            'prioritas_daerah' => Prioritas::all(),
         ]);
     }
 
