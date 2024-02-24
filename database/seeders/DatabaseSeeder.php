@@ -53,9 +53,9 @@ class DatabaseSeeder extends Seeder
         //     TahunpdSeeder::class
         // ]);
 
-        $this->call([
-            PrioritasSeeder::class
-        ]);
+        // $this->call([
+        //     PrioritasSeeder::class
+        // ]);
 
         //  
     }

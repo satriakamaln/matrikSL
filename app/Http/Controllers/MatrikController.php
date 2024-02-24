@@ -47,7 +47,7 @@ class MatrikController extends Controller
             'pilars' => Pilar::all(),
             'misi_rpjmd' => Misirpjmd::all(),
             'tahunpd' => Tahunpd::all(),
-            'prioritas_daerah' => Prioritas::all(),
+            'prioritas_daerah' => Prioritas::all()
         ]);
     }
 
