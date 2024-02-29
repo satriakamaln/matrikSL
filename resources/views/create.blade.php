@@ -53,6 +53,12 @@
                 </div>
             </div>
             <div class="col mb-3">
+                <label class="form-label fw-bold">Pilih SKPD</label>
+                <select name="skpd_prov_id" id="skpd_prov_id" class="form-select input">
+                    <option value="skpd_prov_id">-Pilih-</option>
+                </select>
+            </div>
+            <div class="col mb-3">
                 <label class="form-label fw-bold">Program</label>
                 <select name="program" id="program" class="form-select input">
                     <option value="program">program</option>

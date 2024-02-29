@@ -10,6 +10,7 @@
             <thead>
                 <tr>
                     <th>Program Id</th>
+                    <th>Urusan Code</th>
                     <th>Program Name</th>
                 </tr>
             </thead>
@@ -17,6 +18,7 @@
                 @foreach ($programs as $item)
                     <tr>
                         <td>{{ $item->program_id }}</td>
+                        <td>{{ $item->urusan_code }}</td>
                         <td>{{ $item->program_name }}</td>
                     </tr>
                 @endforeach

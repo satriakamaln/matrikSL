@@ -3,7 +3,7 @@
 use App\Models\Matrik;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MatrikController;
-use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\NomenklaturController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,4 +32,5 @@ Route::get('/edit/{id}', [MatrikController::class, 'edit'])->name('ubahData');
 Route::put('/update/{id}', [MatrikController::class, 'update'])->name('updateData');
 Route::delete('/destroy/{id}', [MatrikController::class, 'destroy'])->name('hapusData');
 
-Route::get('/programs', [ProgramController::class, 'index']);
+Route::get('/nomenklatur/programs/', [NomenklaturController::class, 'indexProgram']);
+Route::get('/nomenklatur/bidangs', [NomenklaturController::class, 'indexBidang']);
