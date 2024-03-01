@@ -2,16 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Goalsdgs;
+use App\Models\Pilar;
+use App\Models\Bidang;
 use App\Models\Matrik;
+use App\Models\Tahunpd;
+use App\Models\Goalsdgs;
+use App\Models\SkpdProv;
 use App\Models\Kabupaten;
 use App\Models\Kecamatan;
 use App\Models\Kelurahan;
 use App\Models\Misirpjmd;
-use App\Models\Pilar;
 use App\Models\Prioritas;
-use App\Models\Tahunpd;
 use Illuminate\Http\Request;
+use App\Models\BidangUrusanSkpd;
 
 class MatrikController extends Controller
 {
@@ -41,13 +44,17 @@ class MatrikController extends Controller
 
     public function create()
     {
+
         return view('create', [
             'kabupaten' => Kabupaten::all(),
             'goal_sdgs' => Goalsdgs::all(),
             'pilars' => Pilar::all(),
             'misi_rpjmd' => Misirpjmd::all(),
             'tahunpd' => Tahunpd::all(),
-            'prioritas_daerah' => Prioritas::all()
+            'prioritas_daerah' => Prioritas::all(),
+            'skpd_prov_id' => SkpdProv::all(),
+            'bidangs' => Bidang::all(),
+            'pivot' => BidangUrusanSkpd::all(),
         ]);
     }
 
@@ -59,6 +66,7 @@ class MatrikController extends Controller
             'goal_sdgs' => 'required|string',
             'misi_rpjmd' => 'required|string',
             'prioritas_daerah' => 'required|string',
+            'skpd_prov_id' => 'required|string',
             'program' => 'required|string',
             'kegiatan' => 'required|string',
             'subkegiatan' => 'required|string',
@@ -69,7 +77,6 @@ class MatrikController extends Controller
             'kelurahan' => 'required|string',
             'koordinat' => 'required|string',
             'biaya' => 'required|numeric',
-            'dinas_pengampu' => 'required|string',
         ]);
 
         // Proses penyimpanan data ke dalam database
@@ -79,6 +86,7 @@ class MatrikController extends Controller
             'goal_sdgs' => $request->goal_sdgs,
             'misi_rpjmd' => $request->misi_rpjmd,
             'prioritas_daerah' => $request->prioritas_daerah,
+            'skpd_prov_id' => $request->dinas_pengampu,
             'program' => $request->program,
             'kegiatan' => $request->kegiatan,
             'subkegiatan' => $request->subkegiatan,
@@ -88,8 +96,7 @@ class MatrikController extends Controller
             'kecamatan' => $request->kecamatan,
             'kelurahan' => $request->kelurahan,
             'koordinat' => $request->koordinat,
-            'biaya' => $request->biaya,
-            'dinas_pengampu' => $request->dinas_pengampu
+            'biaya' => $request->biaya
         ]);
 
         // Redirect atau berikan respons sesuai kebutuhan Anda

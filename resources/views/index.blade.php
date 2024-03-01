@@ -6,6 +6,7 @@
     <div class="container">
         <h2 class="my-3">Matrik Shopping List</h2>
         <a href="{{ route('tambahData') }}" class="btn btn-md btn-success mb-3">TAMBAH DATA</a>
+        <a href="{{ route('nomenklatur') }}" class="btn btn-md btn-primary mb-3">HALAMAN</a>
 
         <table class="table table-striped text-center table-bordered">
             <thead>

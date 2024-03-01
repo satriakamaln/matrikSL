@@ -148,6 +148,112 @@
                     $('#prioritas_daerah').empty();
                 }
             });
+
+            $('#skpd_prov_id').on('change', function() {
+                var skpdId = $(this).val();
+                console.log(skpdId);
+                if (skpdId) {
+                    $.ajax({
+                        url: '/get-bidangs/' + skpdId, // Ganti dengan URL yang benar
+                        type: 'GET',
+                        dataType: 'json',
+                        success: function(data) {
+                            console.log(data);
+                            $('#bidang_id').empty();
+                            $('#program').empty();
+                            $('#kegiatan').empty();
+                            $('#subkegiatan').empty();
+                            $('#bidang_id').append('<option value="">Pilih</option>');
+                            $.each(data, function(key, value) {
+                                $('#bidang_id').append('<option value="' + key + '">' +
+                                    value + '</option>');
+                            });
+                        }
+                    });
+                } else {
+                    $('#bidang_id').empty();
+                    $('#program').empty();
+                    $('#kegiatan').empty();
+                    $('#subkegiatan').empty();
+                }
+            });
+
+            $('#bidang_id').on('change', function() {
+                var kodeBidang = $(this).val();
+                console.log(kodeBidang);
+                if (kodeBidang) {
+                    $.ajax({
+                        url: '/get-programs/' + kodeBidang, // Ganti dengan URL yang benar
+                        type: 'GET',
+                        dataType: 'json',
+                        success: function(data) {
+                            console.log(data);
+                            $('#program').empty();
+                            $('#kegiatan').empty();
+                            $('#subkegiatan').empty();
+                            $('#program').append('<option value="">Pilih</option>');
+                            $.each(data, function(key, value) {
+                                $('#program').append('<option value="' + key + '">' +
+                                    value + '</option>');
+                            });
+                        }
+                    });
+                } else {
+                    $('#program').empty();
+                    $('#kegiatan').empty();
+                    $('#subkegiatan').empty();
+                }
+            });
+
+            $('#program').on('change', function() {
+                var kodeProgram = $(this).val();
+                console.log(kodeProgram);
+                if (kodeProgram) {
+                    $.ajax({
+                        url: '/get-kegiatans/' + kodeProgram, // Ganti dengan URL yang benar
+                        type: 'GET',
+                        dataType: 'json',
+                        success: function(data) {
+                            console.log(data);
+                            $('#kegiatan').empty();
+                            $('#subkegiatan').empty();
+                            $('#kegiatan').append('<option value="">Pilih</option>');
+                            $.each(data, function(key, value) {
+                                $('#kegiatan').append('<option value="' + key + '">' +
+                                    value + '</option>');
+                            });
+                        }
+                    });
+                } else {
+                    $('#kegiatan').empty();
+                    $('#subkegiatan').empty();
+                }
+            });
+
+            $('#kegiatan').on('change', function() {
+                var kodeKegiatan = $(this).val();
+                console.log(kodeKegiatan);
+                if (kodeKegiatan) {
+                    $.ajax({
+                        url: '/get-subkegiatans/' + kodeKegiatan, // Ganti dengan URL yang benar
+                        type: 'GET',
+                        dataType: 'json',
+                        success: function(data) {
+                            console.log(data);
+                            $('#subkegiatan').empty();
+                            $('#subkegiatan').append('<option value="">Pilih</option>');
+                            $.each(data, function(key, value) {
+                                $('#subkegiatan').append('<option value="' + key +
+                                    '">' +
+                                    value + '</option>');
+                            });
+                        }
+                    });
+                } else {
+                    $('#subkegiatan').empty();
+                }
+            });
+
         });
     </script>
 </body>

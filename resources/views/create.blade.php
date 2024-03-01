@@ -52,25 +52,38 @@
                     </select>
                 </div>
             </div>
-            <div class="col mb-3">
-                <label class="form-label fw-bold">Pilih SKPD</label>
-                <select name="skpd_prov_id" id="skpd_prov_id" class="form-select input">
-                    <option value="skpd_prov_id">-Pilih-</option>
-                </select>
+            <div class="row mb-3">
+                <div class="col">
+                    <label class="form-label fw-bold">Pilih SKPD</label>
+                    <select name="skpd_prov_id" id="skpd_prov_id" class="form-select">
+                        <option value="">Pilih</option>
+                        @foreach ($skpd as $sk)
+                            <option value="{{ $sk->id }}">{{ $sk->nama_skpd }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="col">
+                    <label class="form-label fw-bold">Select Bidang Urusan</label>
+                    <select name="bidang_id" id="bidang_id" class="form-select"></select>
+                </div>
             </div>
-            <div class="col mb-3">
-                <label class="form-label fw-bold">Program</label>
-                <select name="program" id="program" class="form-select input">
-                    <option value="program">program</option>
-                </select>
+            <div class="row mb-3">
+                <div class="col">
+                    <label class="form-label fw-bold">Pilih Program</label>
+                    <select name="program" id="program" class="form-select"></select>
+                </div>
             </div>
-            <div class="col mb-3">
-                <label class="form-label fw-bold">Kegiatan</label>
-                <input type="text" name="kegiatan" class="form-control" placeholder="Masukan Kegiatan">
+            <div class="row mb-3">
+                <div class="col">
+                    <label class="form-label fw-bold">Pilih Kegiatan</label>
+                    <select name="kegiatan" id="kegiatan" class="form-select"></select>
+                </div>
             </div>
-            <div class="col mb-3">
-                <label class="form-label fw-bold">Sub Kegiatan</label>
-                <input type="text" name="subkegiatan" class="form-control" placeholder="Masukan Sub Kegiatan">
+            <div class="row mb-3">
+                <div class="col">
+                    <label class="form-label fw-bold">Pilih Sub-Kegiatan</label>
+                    <select name="subkegiatan" id="subkegiatan" class="form-select"></select>
+                </div>
             </div>
             <div class="col mb-3">
                 <label class="form-label fw-bold">Aktifitas</label>

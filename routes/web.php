@@ -33,4 +33,11 @@ Route::put('/update/{id}', [MatrikController::class, 'update'])->name('updateDat
 Route::delete('/destroy/{id}', [MatrikController::class, 'destroy'])->name('hapusData');
 
 Route::get('/nomenklatur/programs/', [NomenklaturController::class, 'indexProgram']);
-Route::get('/nomenklatur/bidangs', [NomenklaturController::class, 'indexBidang']);
+Route::get('/nomenklatur', [NomenklaturController::class, 'indexBidang'])->name('nomenklatur');
+Route::get('nomenklatur/store', [NomenklaturController::class, 'storeBidang'])->name('simpan');
+Route::delete('nomenklatur/destroy/{id}', [NomenklaturController::class, 'destroy'])->name('hapusBidang');
+
+Route::get('/get-bidangs/{skpdId}', [NomenklaturController::class, 'getBidangsBySkpd']);
+Route::get('/get-programs/{kodeBidang}', [NomenklaturController::class, 'getPrograms']);
+Route::get('/get-kegiatans/{kodeProgram}', [NomenklaturController::class, 'getKegiatans']);
+Route::get('/get-subkegiatans/{kodeKegiatan}', [NomenklaturController::class, 'getSubkegiatans']);
