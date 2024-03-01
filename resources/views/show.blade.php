@@ -22,16 +22,24 @@
             <div class="col-9 border p-2"><b>{{ $id->prioritas_daerah }}</b></div>
         </div>
         <div class="row">
+            <div class="col-3 border p-2 bold">Dinas Pengampu</div>
+            <div class="col-9 border p-2"><b>{{ $id->skpd_prov_id }}</b></div>
+        </div>
+        <div class="row">
+            <div class="col-3 border p-2 bold">Bidang Urusan</div>
+            <div class="col-9 border p-2"><b>{{ $id->kode_bidang }}</b></div>
+        </div>
+        <div class="row">
             <div class="col-3 border p-2 bold">Program</div>
-            <div class="col-9 border p-2"><b>{{ $id->program }}</b></div>
+            <div class="col-9 border p-2"><b>{{ $id->kode_program }}</b></div>
         </div>
         <div class="row">
             <div class="col-3 border p-2 bold">Kegiatan</div>
-            <div class="col-9 border p-2"><b>{{ $id->kegiatan }}</b></div>
+            <div class="col-9 border p-2"><b>{{ $id->kode_kegiatan }}</b></div>
         </div>
         <div class="row">
             <div class="col-3 border p-2 bold">Sub Kegiatan</div>
-            <div class="col-9 border p-2"><b>{{ $id->subkegiatan }}</b></div>
+            <div class="col-9 border p-2"><b>{{ $id->kode_subkegiatan }}</b></div>
         </div>
         <div class="row">
             <div class="col-3 border p-2 bold">Aktifitas</div>
@@ -66,10 +74,6 @@
         <div class="row mb-3">
             <div class="col-3 border p-2 bold">Rencana Biaya Anggaran</div>
             <div class="col-9 border p-2"><b>{{ $id->biaya }}</b></div>
-        </div>
-        <div class="row mb-3">
-            <div class="col-3 border p-2 bold">Dinas Pengampu</div>
-            <div class="col-9 border p-2"><b>{{ $id->dinas_pengampu }}</b></div>
         </div>
 
         <a href="{{ route('beranda') }}" style="text-decoration: none">

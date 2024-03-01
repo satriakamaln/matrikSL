@@ -10,14 +10,15 @@ class Matrik extends Model
     use HasFactory;
 
     protected $fillable = [
-
         'pilar',
         'goal_sdgs',
         'misi_rpjmd',
         'prioritas_daerah',
-        'program',
-        'kegiatan',
-        'subkegiatan',
+        'skpd_prov_id',
+        'kode_bidang',
+        'kode_program',
+        'kode_kegiatan',
+        'kode_subkegiatan',
         'aktifitas',
         'target',
         'kabupaten',
@@ -25,6 +26,5 @@ class Matrik extends Model
         'kelurahan',
         'koordinat',
         'biaya',
-        'dinas_pengampu',
     ];
 }
