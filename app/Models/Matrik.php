@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Matrik extends Model
 {
@@ -27,4 +28,9 @@ class Matrik extends Model
         'koordinat',
         'biaya',
     ];
+
+    public function SkpdProv()
+    {
+        return $this->belongsTo(SkpdProv::class, 'skpd_prov_id');
+    }
 }

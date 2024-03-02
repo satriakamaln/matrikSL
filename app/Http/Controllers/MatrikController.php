@@ -20,7 +20,7 @@ class MatrikController extends Controller
 {
     public function index()
     {
-        $matriks = Matrik::paginate(10);
+        $matriks = Matrik::with('skpdProv')->orderBy('skpd_prov_id', 'asc')->paginate(10);
         return view('index', compact('matriks'));
     }
 
@@ -105,11 +105,18 @@ class MatrikController extends Controller
         return redirect()->route('beranda')->with('success', 'Data berhasil disimpan.');
     }
 
-    public function show(Matrik $id)
-    {
-        // dd($id);
+    // public function show(Matrik $id)
+    // {
+    //     $id->with('program');
+    //     // dd($id);
 
-        return view('show', compact('id'));
+    //     return view('show', compact('id'));
+    // }
+    public function show($id)
+    {
+        $matriks = Matrik::with('skpdProv')->findOrFail($id);
+
+        return view('show', compact('matriks'));
     }
 
     public function edit(Request $request, $id)

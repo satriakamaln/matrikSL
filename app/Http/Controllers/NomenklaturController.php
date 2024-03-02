@@ -55,11 +55,6 @@ class NomenklaturController extends Controller
         return response()->json($subkegiatanOptions);
     }
 
-    public function indexProgram()
-    {
-        $programs = RefProgram::paginate(20);
-        return view('nomenklatur.programs', compact('programs'));
-    }
     public function indexBidang()
     {
         $skpd = SkpdProv::all();

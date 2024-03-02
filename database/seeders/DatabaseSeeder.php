@@ -33,9 +33,9 @@ class DatabaseSeeder extends Seeder
         //     KecamatanSeeder::class
         // ]);
 
-        // $this->call([
-        //     KelurahanSeeder::class
-        // ]);
+        $this->call([
+            KelurahanSeeder::class
+        ]);
 
         // $this->call([
         //     GoalsdgsSeeder::class

@@ -13,4 +13,9 @@ class SkpdProv extends Model
     {
         return $this->belongsToMany(Bidang::class, 'bidang_urusan_skpd');
     }
+
+    public function matriks()
+    {
+        return $this->hasMany(Matrik::class);
+    }
 }

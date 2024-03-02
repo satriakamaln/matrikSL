@@ -12,7 +12,9 @@
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Program</th>
+                    <th>SKDP</th>
+                    <th>Bidang Urusan</th>
+                    <th>program</th>
                     <th>Kegiatan</th>
                     <th>Kabupaten/Kota</th>
                     {{-- <th>Kecamatan</th> --}}
@@ -25,6 +27,8 @@
                 @foreach ($matriks as $matrik)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
+                        <td>{{ $matrik->skpdProv->nama_skpd }}</td>
+                        <td>{{ $matrik->kode_bidang }}</td>
                         <td>{{ $matrik->kode_program }}</td>
                         <td>{{ $matrik->kode_kegiatan }}</td>
                         <td>{{ $matrik->kabupaten }}</td>
@@ -38,7 +42,8 @@
                                 action="{{ route('hapusData', $matrik->id) }}" method="POST">
                                 <a href="{{ route('detailData', $matrik->id) }}"
                                     class="btn btn-sm btn-warning">SHOW</a>&nbsp;
-                                <a href="{{ route('ubahData', $matrik->id) }}" class="btn btn-sm btn-primary">EDIT</a>&nbsp;
+                                <a href="{{ route('ubahData', $matrik->id) }}"
+                                    class="btn btn-sm btn-primary">EDIT</a>&nbsp;
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
