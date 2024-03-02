@@ -20,7 +20,7 @@ class MatrikController extends Controller
 {
     public function index()
     {
-        $matriks = Matrik::with('skpdProv')->orderBy('skpd_prov_id', 'asc')->paginate(10);
+        $matriks = Matrik::with('SkpdProv', 'Bidang')->orderBy('skpd_prov_id', 'asc')->paginate(10);
         return view('index', compact('matriks'));
     }
 
@@ -65,6 +65,7 @@ class MatrikController extends Controller
             'pilar' => 'required|string',
             'goal_sdgs' => 'required|string',
             'misi_rpjmd' => 'required|string',
+            'tahunpd' => 'required|string',
             'prioritas_daerah' => 'required|string',
             'skpd_prov_id' => 'required',
             'kode_bidang' => 'required',
@@ -86,6 +87,7 @@ class MatrikController extends Controller
             'pilar' => $request->pilar,
             'goal_sdgs' => $request->goal_sdgs,
             'misi_rpjmd' => $request->misi_rpjmd,
+            'tahunpd' => $request->tahunpd,
             'prioritas_daerah' => $request->prioritas_daerah,
             'skpd_prov_id' => $request->skpd_prov_id,
             'kode_bidang' => $request->kode_bidang,
@@ -105,38 +107,55 @@ class MatrikController extends Controller
         return redirect()->route('beranda')->with('success', 'Data berhasil disimpan.');
     }
 
-    // public function show(Matrik $id)
-    // {
-    //     $id->with('program');
-    //     // dd($id);
-
-    //     return view('show', compact('id'));
-    // }
     public function show($id)
     {
-        $matriks = Matrik::with('skpdProv')->findOrFail($id);
+        $matriks = Matrik::with('skpdProv', 'Bidang', 'Program', 'Kegiatan', 'Subkegiatan')->findOrFail($id);
 
         return view('show', compact('matriks'));
     }
 
+    // public function edit(Request $request, $id)
+    // {
+    //     // return view('edit', [
+    //     //     'kabupaten' => Kabupaten::all()
+    //     // ]);
+
+    //     $data = Matrik::find($id);
+    //     $kabupaten = Kabupaten::all();
+    //     $kecamatan = kecamatan::all();
+    //     // dd($data);
+    //     return view('edit', compact('data', 'kabupaten', 'kecamatan'));
+    // }
+
     public function edit(Request $request, $id)
     {
-        // return view('edit', [
-        //     'kabupaten' => Kabupaten::all()
-        // ]);
-
-        $data = Matrik::find($id);
+        $matriks = Matrik::find($id);
+        $pilars = Pilar::all();
+        $goal_sdgs = Goalsdgs::all();
+        $misi_rpjmd = Misirpjmd::all();
+        $tahunpd = Tahunpd::all();
+        $prioritas_daerah = Prioritas::all();
+        $skpd = SkpdProv::all();
         $kabupaten = Kabupaten::all();
         $kecamatan = kecamatan::all();
-        // dd($data);
-        return view('edit', compact('data', 'kabupaten', 'kecamatan'));
+        return view('edit', compact('matriks', 'pilars', 'goal_sdgs', 'misi_rpjmd', 'tahunpd', 'prioritas_daerah', 'skpd', 'kabupaten', 'kecamatan'));
     }
 
     public function update(Request $request, $id)
     {
-        // Validasi data permintaan jika diperlukan
         $request->validate([
-            'program' => 'required|string',
+            'pilar' => 'required|string',
+            'goal_sdgs' => 'required|string',
+            'misi_rpjmd' => 'required|string',
+            'tahunpd' => 'required|string',
+            'prioritas_daerah' => 'required|string',
+            'skpd_prov_id' => 'required',
+            'kode_bidang' => 'required',
+            'kode_program' => 'required',
+            'kode_kegiatan' => 'required',
+            'kode_subkegiatan' => 'required',
+            'aktifitas' => 'required|string',
+            'target' => 'required|string',
             'kabupaten' => 'required|string',
             'kecamatan' => 'required|string',
             'kelurahan' => 'required|string',
@@ -144,26 +163,33 @@ class MatrikController extends Controller
             'biaya' => 'required|numeric',
         ]);
 
-        // Temukan entri yang ingin diperbarui
+
         $matriks = Matrik::findOrFail($id);
-        // Lakukan pembaruan pada entri
         $matriks->update([
-            'program' => $request->program,
+            'pilar' => $request->pilar,
+            'goal_sdgs' => $request->goal_sdgs,
+            'misi_rpjmd' => $request->misi_rpjmd,
+            'tahunpd' => $request->tahunpd,
+            'prioritas_daerah' => $request->prioritas_daerah,
+            'skpd_prov_id' => $request->skpd_prov_id,
+            'kode_bidang' => $request->kode_bidang,
+            'kode_program' => $request->kode_program,
+            'kode_kegiatan' => $request->kode_kegiatan,
+            'kode_subkegiatan' => $request->kode_subkegiatan,
+            'aktifitas' => $request->aktifitas,
+            'target' => $request->target,
             'kabupaten' => $request->kabupaten,
             'kecamatan' => $request->kecamatan,
             'kelurahan' => $request->kelurahan,
             'koordinat' => $request->koordinat,
             'biaya' => $request->biaya
-            // tambahkan atribut lain yang ingin Anda perbarui
         ]);
 
-        // Redirect atau kembalikan respons yang sesuai
         return redirect()->route('beranda')->with(['success' => 'Data Berhasil Diubah']);
     }
 
     public function destroy($id)
     {
-        //get post by ID
         $matriks = Matrik::findOrFail($id);
         $matriks->delete();
         return redirect()->route('beranda')->with(['success' => 'Data Berhasil Dihapus!']);

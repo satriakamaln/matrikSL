@@ -27,8 +27,8 @@
                 @foreach ($matriks as $matrik)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $matrik->skpdProv->nama_skpd }}</td>
-                        <td>{{ $matrik->kode_bidang }}</td>
+                        <td>{{ $matrik->SkpdProv->nama_skpd }}</td>
+                        <td>{{ $matrik->Bidang->nama_bidang }}</td>
                         <td>{{ $matrik->kode_program }}</td>
                         <td>{{ $matrik->kode_kegiatan }}</td>
                         <td>{{ $matrik->kabupaten }}</td>

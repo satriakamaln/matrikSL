@@ -27,19 +27,19 @@
         </div>
         <div class="row">
             <div class="col-3 border p-2 bold">Bidang Urusan</div>
-            <div class="col-9 border p-2"><b>{{ $matriks->kode_bidang }}</b></div>
+            <div class="col-9 border p-2"><b>{{ $matriks->Bidang->nama_bidang }}</b></div>
         </div>
         <div class="row">
             <div class="col-3 border p-2 bold">Program</div>
-            <div class="col-9 border p-2"><b>{{ $matriks->kode_program }}</b></div>
+            <div class="col-9 border p-2"><b>{{ $matriks->Program->nama_program }}</b></div>
         </div>
         <div class="row">
             <div class="col-3 border p-2 bold">Kegiatan</div>
-            <div class="col-9 border p-2"><b>{{ $matriks->kode_kegiatan }}</b></div>
+            <div class="col-9 border p-2"><b>{{ $matriks->Kegiatan->nama_kegiatan }}</b></div>
         </div>
         <div class="row">
             <div class="col-3 border p-2 bold">Sub Kegiatan</div>
-            <div class="col-9 border p-2"><b>{{ $matriks->kode_subkegiatan }}</b></div>
+            <div class="col-9 border p-2"><b>{{ $matriks->Subkegiatan->nama_subkegiatan }}</b></div>
         </div>
         <div class="row">
             <div class="col-3 border p-2 bold">Aktifitas</div>
