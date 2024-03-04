@@ -5,7 +5,7 @@
 @section('content')
     <div class="container">
         <h2 class="my-3">Tambah Data</h2>
-        <form action="{{ route('storeData') }}" method="POST">
+        <form action="{{ route('admin.storeData') }}" method="POST">
             @csrf
             <div class="row mb-3">
                 <div class="col-4">
@@ -125,9 +125,12 @@
                         placeholder="Masukan Rencana Biaya Anggaran...">
                 </div>
             </div>
-            <button type="submit" class="btn btn-md btn-primary mb-3">SIMPAN</button>
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-md btn-primary mb-3">SIMPAN</button>
+                <a href="{{ route('admin.beranda') }}" class="btn btn-md btn-warning mb-3">
+                    BACK</a>
+            </div>
         </form>
-        <a href="{{ route('beranda') }}" style="text-decoration: none">
-            << Back</a>
+
     </div>
 @endsection

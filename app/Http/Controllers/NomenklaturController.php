@@ -59,7 +59,7 @@ class NomenklaturController extends Controller
     {
         $skpd = SkpdProv::all();
         $bidangs = Bidang::all();
-        $pivot = BidangUrusanSkpd::all();
+        $pivot = BidangUrusanSkpd::orderBy('skpd_prov_id', 'asc')->get();
         return view('nomenklatur.bidangs', compact('skpd', 'bidangs', 'pivot'));
     }
 

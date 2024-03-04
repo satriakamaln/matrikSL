@@ -104,7 +104,7 @@ class MatrikController extends Controller
         ]);
 
         // Redirect atau berikan respons sesuai kebutuhan Anda
-        return redirect()->route('beranda')->with('success', 'Data berhasil disimpan.');
+        return redirect()->route('admin.beranda')->with('success', 'Data berhasil disimpan.');
     }
 
     public function show($id)
@@ -185,13 +185,14 @@ class MatrikController extends Controller
             'biaya' => $request->biaya
         ]);
 
-        return redirect()->route('beranda')->with(['success' => 'Data Berhasil Diubah']);
+        return redirect()->route('admin.detailData', ['id' => $id])->with(['success' => 'Data Berhasil Diubah']);
     }
 
     public function destroy($id)
     {
+
         $matriks = Matrik::findOrFail($id);
         $matriks->delete();
-        return redirect()->route('beranda')->with(['success' => 'Data Berhasil Dihapus!']);
+        return redirect()->route('admin.beranda')->with(['success' => 'Data Berhasil Dihapus!']);
     }
 }

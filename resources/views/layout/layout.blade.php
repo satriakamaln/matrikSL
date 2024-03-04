@@ -50,7 +50,7 @@
                 console.log(kabupaten);
                 if (kabupaten) {
                     $.ajax({
-                        url: '/create/kecamatan/' + kabupaten,
+                        url: 'admin/create/kecamatan/' + kabupaten,
                         type: 'GET',
                         data: {
                             '_token': '{{ csrf_token() }}'
@@ -84,7 +84,7 @@
                 console.log(kecamatan);
                 if (kecamatan) {
                     $.ajax({
-                        url: '/create/kelurahan/' + kecamatan,
+                        url: 'admin/create/kelurahan/' + kecamatan,
                         type: 'GET',
                         data: {
                             '_token': '{{ csrf_token() }}'
@@ -118,7 +118,7 @@
                 console.log(tahunpd);
                 if (tahunpd) {
                     $.ajax({
-                        url: '/create/prioritas/' + tahunpd,
+                        url: 'admin/create/prioritas/' + tahunpd,
                         type: 'GET',
                         data: {
                             '_token': '{{ csrf_token() }}'
@@ -154,7 +154,7 @@
                 console.log(skpdId);
                 if (skpdId) {
                     $.ajax({
-                        url: '/get-bidangs/' + skpdId, // Ganti dengan URL yang benar
+                        url: 'admin/get-bidangs/' + skpdId, // Ganti dengan URL yang benar
                         type: 'GET',
                         dataType: 'json',
                         success: function(data) {
@@ -183,7 +183,7 @@
                 console.log(kodeBidang);
                 if (kodeBidang) {
                     $.ajax({
-                        url: '/get-programs/' + kodeBidang, // Ganti dengan URL yang benar
+                        url: 'admin/get-programs/' + kodeBidang, // Ganti dengan URL yang benar
                         type: 'GET',
                         dataType: 'json',
                         success: function(data) {
@@ -210,7 +210,7 @@
                 console.log(kodeProgram);
                 if (kodeProgram) {
                     $.ajax({
-                        url: '/get-kegiatans/' + kodeProgram, // Ganti dengan URL yang benar
+                        url: 'admin/get-kegiatans/' + kodeProgram, // Ganti dengan URL yang benar
                         type: 'GET',
                         dataType: 'json',
                         success: function(data) {
@@ -235,7 +235,8 @@
                 console.log(kodeKegiatan);
                 if (kodeKegiatan) {
                     $.ajax({
-                        url: '/get-subkegiatans/' + kodeKegiatan, // Ganti dengan URL yang benar
+                        url: 'admin/get-subkegiatans/' +
+                        kodeKegiatan, // Ganti dengan URL yang benar
                         type: 'GET',
                         dataType: 'json',
                         success: function(data) {
