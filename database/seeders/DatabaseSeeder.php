@@ -57,6 +57,10 @@ class DatabaseSeeder extends Seeder
         //     PrioritasSeeder::class
         // ]);
 
+        // $this->call([
+        //     SkpdSeeder::class
+        // ]);
+
         //  
     }
 }

@@ -59,7 +59,7 @@ class NomenklaturController extends Controller
     {
         $skpd = SkpdProv::all();
         $bidangs = Bidang::all();
-        $pivot = BidangUrusanSkpd::orderBy('skpd_prov_id', 'asc')->get();
+        $pivot = BidangUrusanSkpd::orderBy('skpd_prov_id', 'asc')->paginate(10);
         return view('nomenklatur.bidangs', compact('skpd', 'bidangs', 'pivot'));
     }
 
@@ -76,7 +76,7 @@ class NomenklaturController extends Controller
             'bidang_id' => $request->bidang_id,
         ]);
 
-        return redirect()->route('nomenklatur')->with('success', 'Data berhasil disimpan.');
+        return redirect()->route('admin.nomenklatur')->with('success', 'Data berhasil disimpan.');
     }
 
     public function destroy($id)

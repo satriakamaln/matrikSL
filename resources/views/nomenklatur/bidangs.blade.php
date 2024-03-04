@@ -8,12 +8,12 @@
             <div class="card-body">
                 <h5 class="text-center my-4">Bidang Urusan SKPD</h5>
 
-                <form action="{{ route('simpan') }}" class="mb-3">
+                <form action="{{ route('admin.simpan') }}" class="mb-3">
                     <div class="row mb-3">
                         <div class="col">
                             <label class="form-abel">Select SKPD</label>
                             <select name="skpd_prov_id" id="skpd" class="form-select">
-                                <option value="">Pilih</option>
+                                <option selected disabled value="">Pilih</option>
                                 @foreach ($skpd as $sk)
                                     <option value="{{ $sk->id }}">{{ $sk->nama_skpd }}</option>
                                 @endforeach
@@ -22,7 +22,7 @@
                         <div class="col">
                             <label class="form-abel">Select URUSAN</label>
                             <select name="bidang_id" id="bidang" class="form-select">
-                                <option value="">Pilih</option>
+                                <option selected disabled value="">Pilih</option>
                                 @foreach ($bidangs as $bid)
                                     <option value="{{ $bid->id }}">{{ $bid->nama_bidang }}</option>
                                 @endforeach
@@ -73,7 +73,7 @@
                                 </td>
                                 <td>
                                     <form onsubmit="return confirm('Hapus ?')"
-                                        action="{{ route('hapusBidang', ['id' => $piv->id]) }}" method="POST">
+                                        action="{{ route('admin.hapusBidang', ['id' => $piv->id]) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Hapus</button>
@@ -83,10 +83,11 @@
                         @endforeach
                     </tbody>
                 </table>
+                {!! $pivot->withQueryString()->links('pagination::bootstrap-5') !!}
             </div>
         </div>
-        <a href="{{ route('beranda') }}" style="text-decoration: none">
-            << Back</a>
+        <a href="{{ route('admin.beranda') }}" class="btn btn-sm btn-warning mb-3">
+            BACK</a>
     </div>
 
 @endsection

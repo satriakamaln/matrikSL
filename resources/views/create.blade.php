@@ -11,7 +11,7 @@
                 <div class="col-4">
                     <label class="form-label fw-bold">Pilar</label>
                     <select name="pilar" id="pilar" class="form-select input" required>
-                        <option value="">-Pilih-</option>
+                        <option selected disabled value="">-Pilih-</option>
                         @foreach ($pilars as $pilar)
                             <option value="{{ $pilar->pilar }}">{{ $pilar->pilar }}</option>
                         @endforeach
@@ -20,7 +20,7 @@
                 <div class="col">
                     <label class="form-label fw-bold">Goal SDGs</label>
                     <select name="goal_sdgs" id="goal_sdgs" class="form-select input" required>
-                        <option value="">-Pilih-</option>
+                        <option selected disabled value="">-Pilih-</option>
                         @foreach ($goal_sdgs as $goal)
                             <option value="{{ $goal->goal_sdgs }}">{{ $goal->goal_sdgs }}</option>
                         @endforeach
@@ -30,7 +30,7 @@
             <div class="col mb-3">
                 <label class="form-label fw-bold">Misi RPJMD</label>
                 <select name="misi_rpjmd" id="misi_rpjmd" class="form-select input" required>
-                    <option value="">-Pilih-</option>
+                    <option selected disabled value="">-Pilih-</option>
                     @foreach ($misi_rpjmd as $misi)
                         <option value="{{ $misi->misi_rpjmd }}">{{ $misi->misi_rpjmd }}</option>
                     @endforeach
@@ -40,7 +40,7 @@
                 <div class="col-2">
                     <label class="form-label fw-bold">Tahun PD</label>
                     <select name="tahunpd" id="tahunpd" class="form-select input" required>
-                        <option value="">-Pilih-</option>
+                        <option selected disabled value="">-Pilih-</option>
                         @foreach ($tahunpd as $pd)
                             <option value="{{ $pd->tahunpd }}">{{ $pd->tahunpd }}</option>
                         @endforeach
@@ -56,7 +56,7 @@
                 <div class="col">
                     <label class="form-label fw-bold">Pilih SKPD</label>
                     <select name="skpd_prov_id" id="skpd_prov_id" class="form-select" required>
-                        <option value="">Pilih</option>
+                        <option selected disabled value="">-Pilih-</option>
                         @foreach ($skpd as $sk)
                             <option value="{{ $sk->id }}">{{ $sk->nama_skpd }}</option>
                         @endforeach

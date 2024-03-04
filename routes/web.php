@@ -26,7 +26,6 @@ Route::post('/login-proses', [loginController::class, 'login_proses'])->name('lo
 Route::get('/logout', [loginController::class, 'logout'])->name('logout');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], function () {
-    // Route::get('/', [MatrikController::class, 'index'])->name('beranda');
     Route::get('/index', [MatrikController::class, 'index'])->name('beranda');
     Route::get('admin/create/prioritas/{tahunpd}', [MatrikController::class, 'getPrioritas'])->name('getPrioritas');
     Route::get('admin/create/kecamatan/{kabupaten}', [MatrikController::class, 'getKecamatan'])->name('getKecamatan');

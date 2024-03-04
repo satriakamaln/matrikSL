@@ -17,14 +17,13 @@
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>SKDP</th>
-                    <th>Bidang Urusan</th>
-                    <th>program</th>
-                    <th>Kegiatan</th>
+                    <th>Aktifitas</th>
                     <th>Kabupaten/Kota</th>
-                    {{-- <th>Kecamatan</th> --}}
-                    {{-- <th>Koordinat</th> --}}
+                    <th>Kecamatan</th>
+                    <th>Koordiant</th>
+                    <th>Target</th>
                     <th>Rencana Biaya Anggaran</th>
+                    <th>SKDP Pengampu</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -32,16 +31,15 @@
                 @foreach ($matriks as $matrik)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $matrik->SkpdProv->nama_skpd }}</td>
-                        <td>{{ $matrik->Bidang->nama_bidang }}</td>
-                        <td>{{ $matrik->kode_program }}</td>
-                        <td>{{ $matrik->kode_kegiatan }}</td>
+                        <td>{{ $matrik->aktifitas }}</td>
                         <td>{{ $matrik->kabupaten }}</td>
-                        {{-- <td>{{ $matrik->kecamatan }}</td> --}}
-                        {{-- <td class="koordinat">
+                        <td>{{ $matrik->kecamatan }}</td>
+                        <td class="koordinat">
                             <a class="tautan" target="_blank">{{ $matrik->koordinat }}</a>
-                        </td> --}}
+                        </td>
+                        <td>{{ $matrik->target }}</td>
                         <td>{{ $matrik->biaya }}</td>
+                        <td>{{ $matrik->SkpdProv->nama_skpd }}</td>
                         <td>
                             <forms>
                                 <a href="{{ route('admin.detailData', $matrik->id) }}"

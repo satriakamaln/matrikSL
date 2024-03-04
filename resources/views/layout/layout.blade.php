@@ -61,7 +61,8 @@
                             if (data) {
                                 $('#kecamatan').empty();
                                 $('#kelurahan').empty();
-                                $('#kecamatan').append('<option value="">-Pilih-</option>');
+                                $('#kecamatan').append(
+                                    '<option selected disabled value="">-Pilih-</option>');
                                 $.each(data, function(key, kecamatan) {
                                     $('select[name="kecamatan"]').append(
                                         '<option value="' + kecamatan.kecamatan +
@@ -94,7 +95,8 @@
                             console.log(data);
                             if (data) {
                                 $('#kelurahan').empty();
-                                $('#kelurahan').append('<option value="">-Pilih-</option>');
+                                $('#kelurahan').append(
+                                    '<option selected disabled value="">-Pilih-</option>');
                                 $.each(data, function(key, kelurahan) {
                                     $('select[name="kelurahan"]').append(
                                         '<option value="' + kelurahan.kelurahan +
@@ -129,7 +131,7 @@
                             if (data) {
                                 $('#prioritas_daerah').empty();
                                 $('#prioritas_daerah').append(
-                                    '<option value="">-Pilih-</option>');
+                                    '<option selected disabled value="">-Pilih-</option>');
                                 $.each(data, function(key, prioritas_daerah) {
                                     $('select[name="prioritas_daerah"]').append(
                                         '<option value="' + prioritas_daerah
@@ -163,7 +165,8 @@
                             $('#program').empty();
                             $('#kegiatan').empty();
                             $('#subkegiatan').empty();
-                            $('#bidang_id').append('<option value="">Pilih</option>');
+                            $('#bidang_id').append(
+                                '<option selected disabled value="">-Pilih-</option>');
                             $.each(data, function(key, value) {
                                 $('#bidang_id').append('<option value="' + key + '">' +
                                     value + '</option>');
@@ -191,7 +194,8 @@
                             $('#program').empty();
                             $('#kegiatan').empty();
                             $('#subkegiatan').empty();
-                            $('#program').append('<option value="">Pilih</option>');
+                            $('#program').append(
+                                '<option selected disabled value="">-Pilih-</option>');
                             $.each(data, function(key, value) {
                                 $('#program').append('<option value="' + key + '">' +
                                     value + '</option>');
@@ -217,7 +221,8 @@
                             console.log(data);
                             $('#kegiatan').empty();
                             $('#subkegiatan').empty();
-                            $('#kegiatan').append('<option value="">Pilih</option>');
+                            $('#kegiatan').append(
+                                '<option selected disabled value="">-Pilih-</option>');
                             $.each(data, function(key, value) {
                                 $('#kegiatan').append('<option value="' + key + '">' +
                                     value + '</option>');
@@ -236,13 +241,14 @@
                 if (kodeKegiatan) {
                     $.ajax({
                         url: 'admin/get-subkegiatans/' +
-                        kodeKegiatan, // Ganti dengan URL yang benar
+                            kodeKegiatan, // Ganti dengan URL yang benar
                         type: 'GET',
                         dataType: 'json',
                         success: function(data) {
                             console.log(data);
                             $('#subkegiatan').empty();
-                            $('#subkegiatan').append('<option value="">Pilih</option>');
+                            $('#subkegiatan').append(
+                                '<option selected disabled value="">-Pilih-</option>');
                             $.each(data, function(key, value) {
                                 $('#subkegiatan').append('<option value="' + key +
                                     '">' +
