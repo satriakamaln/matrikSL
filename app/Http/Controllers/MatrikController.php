@@ -18,9 +18,25 @@ use App\Models\BidangUrusanSkpd;
 
 class MatrikController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $matriks = Matrik::with('SkpdProv', 'Bidang')->orderBy('skpd_prov_id', 'asc')->paginate(10);
+
+        if ($search = $request->search) {
+            $matriks = Matrik::where(function ($query) use ($search) {
+
+                $query->where('aktifitas', 'like', "%$search%")
+                    ->orWhere('target', 'like', "%$search%")
+                    ->orWhere('kabupaten', 'like', "%$search%");
+            })
+                ->orWhereHas('SkpdProv', function ($query) use ($search) {
+                    $query->where('nama_skpd', 'like', "%$search%");
+                })
+                ->paginate();
+        } else {
+            $matriks = Matrik::with('SkpdProv', 'Bidang')->orderBy('skpd_prov_id', 'asc')->paginate(10);
+        }
+
+
         return view('index', compact('matriks'));
     }
 
@@ -41,6 +57,26 @@ class MatrikController extends Controller
         $kelurahan = Kelurahan::where('kecamatan', $kelurahan)->get();
         return response()->json($kelurahan);
     }
+
+    // public function search(Request $request)
+    // {
+
+    //     $search = $request->search;
+    //     $matriks = Matrik::where(function ($query) use ($search) {
+
+    //         $query->where('aktifitas', 'like', "%$search%")
+    //             ->orWhere('target', 'like', "%$search%");
+    //     })
+    //         // ->orWhereHas('SkpdProv', function ($query) use ($search) {
+    //         //     $query->where('nama_skpd', 'like', "%$search%");
+    //         // })
+    //         // ->orWhereHas('user', function ($query) use ($search) {
+    //         //     $query->where('name', 'like', "%$search%");
+    //         // })
+    //         ->get();
+
+    //     return view('index', compact('matriks', 'search'));
+    // }
 
     public function create()
     {

@@ -33,6 +33,8 @@
 
         const tdKoordinat = document.querySelectorAll(".koordinat");
 
+        let base_url = "{{ url('/') }}"
+
         tdKoordinat.forEach(function(td) {
 
             const tautan = td.querySelector(".tautan");
@@ -44,221 +46,223 @@
     </script>
 
     <script>
-        $(document).ready(function() {
-            $('#kabupaten').on('change', function() {
-                var kabupaten = $(this).val();
-                console.log(kabupaten);
-                if (kabupaten) {
-                    $.ajax({
-                        url: 'kecamatan/' + kabupaten,
-                        type: 'GET',
-                        data: {
-                            '_token': '{{ csrf_token() }}'
-                        },
-                        dataType: 'json',
-                        success: function(data) {
-                            console.log(data);
-                            if (data) {
-                                $('#kecamatan').empty();
-                                $('#kelurahan').empty();
-                                $('#kecamatan').append(
-                                    '<option value="">-Pilih-</option>');
-                                $.each(data, function(key, kecamatan) {
-                                    $('select[name="kecamatan"]').append(
-                                        '<option value="' + kecamatan.kecamatan +
-                                        '" >' +
-                                        kecamatan.kecamatan + '</option>'
-                                    )
-                                });
-                            } else {
-                                $('#kecamatan').empty();
-                            }
-                        }
-                    });
-                } else {
-                    $('#kecamatan').empty();
-                }
-            });
+        function getUrl() {
+            return base_url
+        }
 
-            $('#kecamatan').on('change', function() {
-                var kecamatan = $(this).val();
-                console.log(kecamatan);
-                if (kecamatan) {
-                    $.ajax({
-                        url: 'kelurahan/' + kecamatan,
-                        type: 'GET',
-                        data: {
-                            '_token': '{{ csrf_token() }}'
-                        },
-                        dataType: 'json',
-                        success: function(data) {
-                            console.log(data);
-                            if (data) {
-                                $('#kelurahan').empty();
-                                $('#kelurahan').append(
-                                    '<option value="">-Pilih-</option>');
-                                $.each(data, function(key, kelurahan) {
-                                    $('select[name="kelurahan"]').append(
-                                        '<option value="' + kelurahan.kelurahan +
-                                        '" >' +
-                                        kelurahan.kelurahan + '</option>'
-                                    )
-                                });
-                            } else {
-                                $('#kelurahan').empty();
-                            }
-                        }
-                    });
-                } else {
-                    $('#kelurahan').empty();
-                }
-            });
-
-            $('#tahunpd').on('change', function() {
-                var tahunpd = $(this).val();
-                console.log(tahunpd);
-                if (tahunpd) {
-                    $.ajax({
-                        url: 'prioritas/' + tahunpd,
-                        type: 'GET',
-                        data: {
-                            '_token': '{{ csrf_token() }}'
-                        },
-                        dataType: 'json',
-                        success: function(data) {
-                            console.log(data);
-                            if (data) {
-                                $('#prioritas_daerah').empty();
-                                $('#prioritas_daerah').append(
-                                    '<option value="">-Pilih-</option>');
-                                $.each(data, function(key, prioritas_daerah) {
-                                    $('select[name="prioritas_daerah"]').append(
-                                        '<option value="' + prioritas_daerah
-                                        .prioritas_daerah +
-                                        '" >' +
-                                        prioritas_daerah.prioritas_daerah +
-                                        '</option>'
-                                    )
-                                });
-                            } else {
-                                $('#prioritas_daerah').empty();
-                            }
-                        }
-                    });
-                } else {
-                    $('#prioritas_daerah').empty();
-                }
-            });
-
-            $('#skpd_prov_id').on('change', function() {
-                var skpdId = $(this).val();
-                console.log(skpdId);
-                if (skpdId) {
-                    $.ajax({
-                        url: 'admin/get-bidangs/' + skpdId, // Ganti dengan URL yang benar
-                        type: 'GET',
-                        dataType: 'json',
-                        success: function(data) {
-                            console.log(data);
-                            $('#bidang_id').empty();
-                            $('#program').empty();
-                            $('#kegiatan').empty();
-                            $('#subkegiatan').empty();
-                            $('#bidang_id').append(
+        $('#kabupaten').on('change', function() {
+            var kabupaten = $(this).val();
+            console.log(kabupaten);
+            if (kabupaten) {
+                $.ajax({
+                    url: base_url + '/admin/kecamatan/' + kabupaten,
+                    type: 'GET',
+                    data: {
+                        '_token': '{{ csrf_token() }}'
+                    },
+                    dataType: 'json',
+                    success: function(data) {
+                        console.log(data);
+                        if (data) {
+                            $('#kecamatan').empty();
+                            $('#kelurahan').empty();
+                            $('#kecamatan').append(
                                 '<option value="">-Pilih-</option>');
-                            $.each(data, function(key, value) {
-                                $('#bidang_id').append('<option value="' + key + '">' +
-                                    value + '</option>');
+                            $.each(data, function(key, kecamatan) {
+                                $('select[name="kecamatan"]').append(
+                                    '<option value="' + kecamatan.kecamatan +
+                                    '" >' +
+                                    kecamatan.kecamatan + '</option>'
+                                )
                             });
+                        } else {
+                            $('#kecamatan').empty();
                         }
-                    });
-                } else {
-                    $('#bidang_id').empty();
-                    $('#program').empty();
-                    $('#kegiatan').empty();
-                    $('#subkegiatan').empty();
-                }
-            });
+                    }
+                });
+            } else {
+                $('#kecamatan').empty();
+            }
+        });
 
-            $('#bidang_id').on('change', function() {
-                var kodeBidang = $(this).val();
-                console.log(kodeBidang);
-                if (kodeBidang) {
-                    $.ajax({
-                        url: 'admin/get-programs/' + kodeBidang, // Ganti dengan URL yang benar
-                        type: 'GET',
-                        dataType: 'json',
-                        success: function(data) {
-                            console.log(data);
-                            $('#program').empty();
-                            $('#kegiatan').empty();
-                            $('#subkegiatan').empty();
-                            $('#program').append(
-                                '<option selected disabled value="">-Pilih-</option>');
-                            $.each(data, function(key, value) {
-                                $('#program').append('<option value="' + key + '">' +
-                                    value + '</option>');
+        $('#kecamatan').on('change', function() {
+            var kecamatan = $(this).val();
+            console.log(kecamatan);
+            if (kecamatan) {
+                $.ajax({
+                    url: base_url + '/admin/kelurahan/' + kecamatan,
+                    type: 'GET',
+                    data: {
+                        '_token': '{{ csrf_token() }}'
+                    },
+                    dataType: 'json',
+                    success: function(data) {
+                        console.log(data);
+                        if (data) {
+                            $('#kelurahan').empty();
+                            $('#kelurahan').append(
+                                '<option value="">-Pilih-</option>');
+                            $.each(data, function(key, kelurahan) {
+                                $('select[name="kelurahan"]').append(
+                                    '<option value="' + kelurahan.kelurahan +
+                                    '" >' +
+                                    kelurahan.kelurahan + '</option>'
+                                )
                             });
+                        } else {
+                            $('#kelurahan').empty();
                         }
-                    });
-                } else {
-                    $('#program').empty();
-                    $('#kegiatan').empty();
-                    $('#subkegiatan').empty();
-                }
-            });
+                    }
+                });
+            } else {
+                $('#kelurahan').empty();
+            }
+        });
 
-            $('#program').on('change', function() {
-                var kodeProgram = $(this).val();
-                console.log(kodeProgram);
-                if (kodeProgram) {
-                    $.ajax({
-                        url: 'admin/get-kegiatans/' + kodeProgram, // Ganti dengan URL yang benar
-                        type: 'GET',
-                        dataType: 'json',
-                        success: function(data) {
-                            console.log(data);
-                            $('#kegiatan').empty();
-                            $('#subkegiatan').empty();
-                            $('#kegiatan').append(
-                                '<option selected disabled value="">-Pilih-</option>');
-                            $.each(data, function(key, value) {
-                                $('#kegiatan').append('<option value="' + key + '">' +
-                                    value + '</option>');
+        $('#tahunpd').on('change', function() {
+            var tahunpd = $(this).val();
+            console.log(tahunpd);
+            if (tahunpd) {
+                $.ajax({
+                    url: base_url + '/admin/prioritas/' + tahunpd,
+                    type: 'GET',
+                    data: {
+                        '_token': '{{ csrf_token() }}'
+                    },
+                    dataType: 'json',
+                    success: function(data) {
+                        console.log(data);
+                        if (data) {
+                            $('#prioritas_daerah').empty();
+                            $('#prioritas_daerah').append(
+                                '<option value="">-Pilih-</option>');
+                            $.each(data, function(key, prioritas_daerah) {
+                                $('select[name="prioritas_daerah"]').append(
+                                    '<option value="' + prioritas_daerah
+                                    .prioritas_daerah +
+                                    '" >' +
+                                    prioritas_daerah.prioritas_daerah +
+                                    '</option>'
+                                )
                             });
+                        } else {
+                            $('#prioritas_daerah').empty();
                         }
-                    });
-                } else {
-                    $('#kegiatan').empty();
-                    $('#subkegiatan').empty();
-                }
-            });
+                    }
+                });
+            } else {
+                $('#prioritas_daerah').empty();
+            }
+        });
 
-            $('#kegiatan').on('change', function() {
-                var kodeKegiatan = $(this).val();
-                console.log(kodeKegiatan);
-                if (kodeKegiatan) {
-                    $.ajax({
-                        url: 'admin/get-subkegiatans/' +
-                            kodeKegiatan, // Ganti dengan URL yang benar
-                        type: 'GET',
-                        dataType: 'json',
-                        success: function(data) {
-                            console.log(data);
-                            $('#subkegiatan').empty();
-                            $('#subkegiatan').append(
-                                '<option selected disabled value="">-Pilih-</option>');
-                            $.each(data, function(key, value) {
-                                $('#subkegiatan').append('<option value="' + key +
-                                    '">' +
-                                    value + '</option>');
-                            });
-                        }
-                    });
-                } else {
-                    $('#subkegiatan').empty();
-                }
-            });
+        $('#skpd_prov_id').on('change', function() {
+            var skpdId = $(this).val();
+            console.log(skpdId);
+            if (skpdId) {
+                $.ajax({
+                    url: base_url + '/admin/get-bidangs/' + skpdId, // Ganti dengan URL yang benar
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        console.log(data);
+                        $('#bidang_id').empty();
+                        $('#program').empty();
+                        $('#kegiatan').empty();
+                        $('#subkegiatan').empty();
+                        $('#bidang_id').append(
+                            '<option value="">-Pilih-</option>');
+                        $.each(data, function(key, value) {
+                            $('#bidang_id').append('<option value="' + key + '">' +
+                                value + '</option>');
+                        });
+                    }
+                });
+            } else {
+                $('#bidang_id').empty();
+                $('#program').empty();
+                $('#kegiatan').empty();
+                $('#subkegiatan').empty();
+            }
+        });
+
+        $('#bidang_id').on('change', function() {
+            var kodeBidang = $(this).val();
+            console.log(kodeBidang);
+            if (kodeBidang) {
+                $.ajax({
+                    url: base_url + '/admin/get-programs/' + kodeBidang, // Ganti dengan URL yang benar
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        console.log(data);
+                        $('#program').empty();
+                        $('#kegiatan').empty();
+                        $('#subkegiatan').empty();
+                        $('#program').append(
+                            '<option selected disabled value="">-Pilih-</option>');
+                        $.each(data, function(key, value) {
+                            $('#program').append('<option value="' + key + '">' +
+                                value + '</option>');
+                        });
+                    }
+                });
+            } else {
+                $('#program').empty();
+                $('#kegiatan').empty();
+                $('#subkegiatan').empty();
+            }
+        });
+
+        $('#program').on('change', function() {
+            var kodeProgram = $(this).val();
+            console.log(kodeProgram);
+            if (kodeProgram) {
+                $.ajax({
+                    url: base_url + '/admin/get-kegiatans/' + kodeProgram, // Ganti dengan URL yang benar
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        console.log(data);
+                        $('#kegiatan').empty();
+                        $('#subkegiatan').empty();
+                        $('#kegiatan').append(
+                            '<option selected disabled value="">-Pilih-</option>');
+                        $.each(data, function(key, value) {
+                            $('#kegiatan').append('<option value="' + key + '">' +
+                                value + '</option>');
+                        });
+                    }
+                });
+            } else {
+                $('#kegiatan').empty();
+                $('#subkegiatan').empty();
+            }
+        });
+
+        $('#kegiatan').on('change', function() {
+            var kodeKegiatan = $(this).val();
+            console.log(kodeKegiatan);
+            if (kodeKegiatan) {
+                $.ajax({
+                    url: base_url + '/admin/get-subkegiatans/' +
+                        kodeKegiatan, // Ganti dengan URL yang benar
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        console.log(data);
+                        $('#subkegiatan').empty();
+                        $('#subkegiatan').append(
+                            '<option selected disabled value="">-Pilih-</option>');
+                        $.each(data, function(key, value) {
+                            $('#subkegiatan').append('<option value="' + key +
+                                '">' +
+                                value + '</option>');
+                        });
+                    }
+                });
+            } else {
+                $('#subkegiatan').empty();
+            }
         });
     </script>
 </body>

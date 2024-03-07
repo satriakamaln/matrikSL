@@ -21,6 +21,7 @@ use App\Http\Controllers\NomenklaturController;
 //     Route::get('/', 'index')->name('index');
 //     Route::get('/create', 'create')->name('tambahData');
 // });
+
 Route::get('/', [loginController::class, 'index'])->name('login');
 Route::post('/login-proses', [loginController::class, 'login_proses'])->name('login-proses');
 Route::get('/logout', [loginController::class, 'logout'])->name('logout');
@@ -33,7 +34,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
     Route::get('/create', [MatrikController::class, 'create'])->name('tambahData');
     Route::post('/store', [MatrikController::class, 'store'])->name('storeData');
     Route::get('/show/{id}', [MatrikController::class, 'show'])->name('detailData');
-    Route::get('/{id}', [MatrikController::class, 'edit'])->name('ubahData');
+    Route::get('/edit/{id}', [MatrikController::class, 'edit'])->name('ubahData');
     Route::put('/update/{id}', [MatrikController::class, 'update'])->name('updateData');
     Route::delete('/destroy/{id}', [MatrikController::class, 'destroy'])->name('hapusData');
 
@@ -41,8 +42,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
     Route::get('nomenklatur/store', [NomenklaturController::class, 'storeBidang'])->name('simpan');
     Route::delete('nomenklatur/destroy/{id}', [NomenklaturController::class, 'destroy'])->name('hapusBidang');
 
-    Route::get('admin/get-bidangs/{skpdId}', [NomenklaturController::class, 'getBidangsBySkpd']);
-    Route::get('admin/get-programs/{kodeBidang}', [NomenklaturController::class, 'getPrograms']);
-    Route::get('admin/get-kegiatans/{kodeProgram}', [NomenklaturController::class, 'getKegiatans']);
-    Route::get('admin/get-subkegiatans/{kodeKegiatan}', [NomenklaturController::class, 'getSubkegiatans']);
+    Route::get('/get-bidangs/{skpdId}', [NomenklaturController::class, 'getBidangsBySkpd']);
+    Route::get('/get-programs/{kodeBidang}', [NomenklaturController::class, 'getPrograms']);
+    Route::get('/get-kegiatans/{kodeProgram}', [NomenklaturController::class, 'getKegiatans']);
+    Route::get('/get-subkegiatans/{kodeKegiatan}', [NomenklaturController::class, 'getSubkegiatans']);
 });

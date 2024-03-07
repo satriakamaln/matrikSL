@@ -8,9 +8,24 @@
             <h2 class="my-3">Matrik Shopping List</h2>
             <a href="{{ route('logout') }}" class="btn btn-md btn-danger my-3">LOG OUT</a>
         </div>
-        <div>
-            <a href="{{ route('admin.tambahData') }}" class="btn btn-md btn-success mb-3">TAMBAH DATA</a>
-            <a href="{{ route('admin.nomenklatur') }}" class="btn btn-md btn-primary mb-3">BIDANG URUSAN</a>
+        <div class="d-flex mt-5">
+            <div class="col">
+                <a href="{{ route('admin.tambahData') }}" class="btn btn-md btn-success mb-3">TAMBAH DATA</a>
+                <a href="{{ route('admin.nomenklatur') }}" class="btn btn-md btn-primary mb-3">BIDANG URUSAN</a>
+            </div>
+
+            <div class="col-md-">
+                <div class="form-group">
+                    <form method="get" action="{{ url('/admin') }}">
+                        <div class="input-group">
+                            <input class="form-control" name="search" placeholder="Search..."
+                                value="{{ isset($search) ? $search : '' }}">
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
         </div>
 
         <table class="table table-striped text-center table-bordered">
