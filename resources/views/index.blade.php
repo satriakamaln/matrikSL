@@ -41,10 +41,8 @@
                         <td>{{ $matrik->biaya }}</td>
                         <td>{{ $matrik->SkpdProv->nama_skpd }}</td>
                         <td>
-                            <forms>
-                                <a href="{{ route('admin.detailData', $matrik->id) }}"
-                                    class="btn btn-sm btn-warning">SHOW</a>&nbsp;
-                                </form>
+                            <a href="{{ route('admin.detailData', $matrik->id) }}"
+                                class="btn btn-sm btn-warning">SHOW</a>&nbsp;
                         </td>
                     </tr>
                 @endforeach

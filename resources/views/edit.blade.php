@@ -12,7 +12,8 @@
                 <div class="col-4">
                     <label class="form-label fw-bold">Pilar</label>
                     <select name="pilar" id="pilar" class="form-select input" required>
-                        <option value="{{ old('pilar', $matriks->pilar) }}">{{ old('pilar', $matriks->pilar) }}</option>
+                        <option value="{{ old('pilar', $matriks->pilar) }}">
+                            {{ old('pilar', $matriks->pilar) }}</option>
                         @foreach ($pilars as $pilar)
                             <option value="{{ $pilar->pilar }}">{{ $pilar->pilar }}</option>
                         @endforeach
@@ -45,7 +46,8 @@
                 <div class="col-2">
                     <label class="form-label fw-bold">Tahun PD</label>
                     <select name="tahunpd" id="tahunpd" class="form-select input" required>
-                        <option value="{{ old('tahunpd', $matriks->tahunpd) }}">{{ old('tahunpd', $matriks->tahunpd) }}
+                        <option value="{{ old('tahunpd', $matriks->tahunpd) }}">
+                            {{ old('tahunpd', $matriks->tahunpd) }}
                         </option>
                         @foreach ($tahunpd as $pd)
                             <option value="{{ $pd->tahunpd }}">{{ $pd->tahunpd }}</option>
@@ -161,7 +163,7 @@
                 </div>
             </div>
             <div class="d-flex justify-content-between">
-                <a href="{{ route('admin.beranda') }}" class="btn btn-md btn-warning mb-3">
+                <a href="{{ route('admin.detailData', $matriks->id) }}" class="btn btn-md btn-warning mb-3">
                     BACK</a>
                 <button type="submit" class="btn btn-md btn-primary mb-3">SIMPAN</button>
             </div>

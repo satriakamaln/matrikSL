@@ -26,18 +26,18 @@ Route::post('/login-proses', [loginController::class, 'login_proses'])->name('lo
 Route::get('/logout', [loginController::class, 'logout'])->name('logout');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], function () {
-    Route::get('/index', [MatrikController::class, 'index'])->name('beranda');
-    Route::get('admin/create/prioritas/{tahunpd}', [MatrikController::class, 'getPrioritas'])->name('getPrioritas');
-    Route::get('admin/create/kecamatan/{kabupaten}', [MatrikController::class, 'getKecamatan'])->name('getKecamatan');
-    Route::get('admin/create/kelurahan/{kecamatan}', [MatrikController::class, 'getKelurahan'])->name('getKelurahan');
+    Route::get('/', [MatrikController::class, 'index'])->name('beranda');
+    Route::get('/prioritas/{tahunpd}', [MatrikController::class, 'getPrioritas'])->name('getPrioritas');
+    Route::get('/kecamatan/{kabupaten}', [MatrikController::class, 'getKecamatan'])->name('getKecamatan');
+    Route::get('/kelurahan/{kecamatan}', [MatrikController::class, 'getKelurahan'])->name('getKelurahan');
     Route::get('/create', [MatrikController::class, 'create'])->name('tambahData');
     Route::post('/store', [MatrikController::class, 'store'])->name('storeData');
     Route::get('/show/{id}', [MatrikController::class, 'show'])->name('detailData');
-    Route::get('/edit/{id}', [MatrikController::class, 'edit'])->name('ubahData');
+    Route::get('/{id}', [MatrikController::class, 'edit'])->name('ubahData');
     Route::put('/update/{id}', [MatrikController::class, 'update'])->name('updateData');
     Route::delete('/destroy/{id}', [MatrikController::class, 'destroy'])->name('hapusData');
 
-    Route::get('index/nomenklatur', [NomenklaturController::class, 'indexBidang'])->name('nomenklatur');
+    Route::get('nomenklatur', [NomenklaturController::class, 'indexBidang'])->name('nomenklatur');
     Route::get('nomenklatur/store', [NomenklaturController::class, 'storeBidang'])->name('simpan');
     Route::delete('nomenklatur/destroy/{id}', [NomenklaturController::class, 'destroy'])->name('hapusBidang');
 

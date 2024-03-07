@@ -50,7 +50,7 @@
                 console.log(kabupaten);
                 if (kabupaten) {
                     $.ajax({
-                        url: 'admin/create/kecamatan/' + kabupaten,
+                        url: 'kecamatan/' + kabupaten,
                         type: 'GET',
                         data: {
                             '_token': '{{ csrf_token() }}'
@@ -62,7 +62,7 @@
                                 $('#kecamatan').empty();
                                 $('#kelurahan').empty();
                                 $('#kecamatan').append(
-                                    '<option selected disabled value="">-Pilih-</option>');
+                                    '<option value="">-Pilih-</option>');
                                 $.each(data, function(key, kecamatan) {
                                     $('select[name="kecamatan"]').append(
                                         '<option value="' + kecamatan.kecamatan +
@@ -85,7 +85,7 @@
                 console.log(kecamatan);
                 if (kecamatan) {
                     $.ajax({
-                        url: 'admin/create/kelurahan/' + kecamatan,
+                        url: 'kelurahan/' + kecamatan,
                         type: 'GET',
                         data: {
                             '_token': '{{ csrf_token() }}'
@@ -96,7 +96,7 @@
                             if (data) {
                                 $('#kelurahan').empty();
                                 $('#kelurahan').append(
-                                    '<option selected disabled value="">-Pilih-</option>');
+                                    '<option value="">-Pilih-</option>');
                                 $.each(data, function(key, kelurahan) {
                                     $('select[name="kelurahan"]').append(
                                         '<option value="' + kelurahan.kelurahan +
@@ -114,13 +114,12 @@
                 }
             });
 
-
             $('#tahunpd').on('change', function() {
                 var tahunpd = $(this).val();
                 console.log(tahunpd);
                 if (tahunpd) {
                     $.ajax({
-                        url: 'admin/create/prioritas/' + tahunpd,
+                        url: 'prioritas/' + tahunpd,
                         type: 'GET',
                         data: {
                             '_token': '{{ csrf_token() }}'
@@ -131,7 +130,7 @@
                             if (data) {
                                 $('#prioritas_daerah').empty();
                                 $('#prioritas_daerah').append(
-                                    '<option selected disabled value="">-Pilih-</option>');
+                                    '<option value="">-Pilih-</option>');
                                 $.each(data, function(key, prioritas_daerah) {
                                     $('select[name="prioritas_daerah"]').append(
                                         '<option value="' + prioritas_daerah
@@ -166,7 +165,7 @@
                             $('#kegiatan').empty();
                             $('#subkegiatan').empty();
                             $('#bidang_id').append(
-                                '<option selected disabled value="">-Pilih-</option>');
+                                '<option value="">-Pilih-</option>');
                             $.each(data, function(key, value) {
                                 $('#bidang_id').append('<option value="' + key + '">' +
                                     value + '</option>');
@@ -260,7 +259,6 @@
                     $('#subkegiatan').empty();
                 }
             });
-
         });
     </script>
 </body>
