@@ -32,10 +32,10 @@
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Aktifitas</th>
-                    <th>Kabupaten/Kota</th>
-                    <th>Kecamatan</th>
-                    <th>Koordiant</th>
+                    <th class="col-2">Aktifitas</th>
+                    <th class="col-1">Kabupaten/Kota</th>
+                    <th class="col-1">Kecamatan</th>
+                    <th class="col-2">Koordiant</th>
                     <th>Target</th>
                     <th>Rencana Biaya Anggaran</th>
                     <th>SKDP Pengampu</th>
@@ -46,7 +46,7 @@
                 @foreach ($matriks as $matrik)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $matrik->aktifitas }}</td>
+                        <td class="text-start">{{ $matrik->aktifitas }}</td>
                         <td>{{ $matrik->kabupaten }}</td>
                         <td>{{ $matrik->kecamatan }}</td>
                         <td class="koordinat">

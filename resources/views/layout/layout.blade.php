@@ -11,7 +11,7 @@
     <title>Matriks | @yield('title')</title>
 </head>
 
-<body>
+<body class="font-monospace">
 
     @yield('content')
 
@@ -245,7 +245,7 @@
             if (kodeKegiatan) {
                 $.ajax({
                     url: base_url + '/admin/get-subkegiatans/' +
-                    kodeKegiatan, // Ganti dengan URL yang benar
+                        kodeKegiatan, // Ganti dengan URL yang benar
                     type: 'GET',
                     dataType: 'json',
                     success: function(data) {
