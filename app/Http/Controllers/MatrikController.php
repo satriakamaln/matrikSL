@@ -25,8 +25,12 @@ class MatrikController extends Controller
             $matriks = Matrik::where(function ($query) use ($search) {
 
                 $query->where('aktifitas', 'like', "%$search%")
+                    ->orWhere('kabupaten', 'like', "%$search%")
+                    ->orWhere('kecamatan', 'like', "%$search%")
+                    ->orWhere('kelurahan', 'like', "%$search%")
+                    ->orWhere('koordinat', 'like', "%$search%")
                     ->orWhere('target', 'like', "%$search%")
-                    ->orWhere('kabupaten', 'like', "%$search%");
+                    ->orWhere('biaya', 'like', "%$search%");
             })
                 ->orWhereHas('SkpdProv', function ($query) use ($search) {
                     $query->where('nama_skpd', 'like', "%$search%");
